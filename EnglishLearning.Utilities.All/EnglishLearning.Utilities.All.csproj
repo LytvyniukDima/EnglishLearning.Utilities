@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\EnglishLearning.Utilities.Configurations\EnglishLearning.Utilities.Configurations.csproj" />
         <ProjectReference Include="..\EnglishLearning.Utilities.Enums\EnglishLearning.Utilities.Enums.csproj" />
         <ProjectReference Include="..\EnglishLearning.Utilities.Expressions\EnglishLearning.Utilities.Expressions.csproj" />
         <ProjectReference Include="..\EnglishLearning.Utilities.Linq\EnglishLearning.Utilities.Linq.csproj" />
