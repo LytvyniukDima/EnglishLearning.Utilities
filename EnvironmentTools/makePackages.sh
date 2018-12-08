@@ -1,4 +1,4 @@
-version="1.0.1"
+version="1.0.2"
 outputFolder="../nupkg"
 
 dotnet pack ./EnglishLearning.Utilities.All/EnglishLearning.Utilities.All.csproj -p:PackageVersion=$version --output $outputFolder

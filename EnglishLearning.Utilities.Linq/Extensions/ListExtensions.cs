@@ -15,5 +15,29 @@ namespace EnglishLearning.Utilities.Linq.Extensions
 
             return element;
         }
+        
+        public static IReadOnlyList<KeyValuePair<int,int>> SplintOnRangesIndexes<T>(this List<T> list, int sizeOfRanges)
+        {
+            var result = new List<KeyValuePair<int, int>>();
+            
+            var sizeOfList = list.Count;
+
+            int index = 0;
+            while (index < list.Count)
+            {
+                if (index + sizeOfRanges < list.Count)
+                {
+                    result.Add(new KeyValuePair<int, int>(index, sizeOfRanges));
+                    index += sizeOfRanges;
+                }
+                else
+                {
+                    result.Add(new KeyValuePair<int, int>(index, list.Count - index));
+                    index += list.Count - index;
+                }
+            }
+            
+            return result;
+        }
     }
 }
