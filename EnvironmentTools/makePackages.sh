@@ -1,12 +1,22 @@
-version="1.0.2"
-outputFolder="../nupkg"
+version="1.0.4"
+outputFolder="nupkg"
+forProjectOutputFolder="../$outputFolder"
+apiKey=""
 
-dotnet pack ./EnglishLearning.Utilities.All/EnglishLearning.Utilities.All.csproj -p:PackageVersion=$version --output $outputFolder
+projects=(
+    'EnglishLearning.Utilities.All'
+    'EnglishLearning.Utilities.Enums'
+    'EnglishLearning.Utilities.Expressions'
+    'EnglishLearning.Utilities.Linq'
+    'EnglishLearning.Utilities.Configurations'
+    'EnglishLearning.Utilities.Persistence'
+    'EnglishLearning.Utilities.Persistence.Mongo'
+)
 
-dotnet pack ./EnglishLearning.Utilities.Enums/EnglishLearning.Utilities.Enums.csproj -p:PackageVersion=$version --output $outputFolder
-dotnet pack ./EnglishLearning.Utilities.Expressions/EnglishLearning.Utilities.Expressions.csproj -p:PackageVersion=$version --output $outputFolder
-dotnet pack ./EnglishLearning.Utilities.Linq/EnglishLearning.Utilities.Linq.csproj -p:PackageVersion=$version --output $outputFolder
-dotnet pack ./EnglishLearning.Utilities.Configurations/EnglishLearning.Utilities.Configurations.csproj -p:PackageVersion=$version --output $outputFolder
+rm -rf $outputFolder
 
-dotnet pack ./EnglishLearning.Utilities.Persistence/EnglishLearning.Utilities.Persistence.csproj -p:PackageVersion=$version --output $outputFolder
-dotnet pack ./EnglishLearning.Utilities.Persistence.Mongo/EnglishLearning.Utilities.Persistence.Mongo.csproj -p:PackageVersion=$version --output $outputFolder
+for project in ${projects[*]}
+do
+    dotnet pack ./$project/$project.csproj -p:PackageVersion=$version --output $forProjectOutputFolder
+    dotnet nuget push ./$outputFolder/$project.$version.nupkg -k $apiKey -s https://api.nuget.org/v3/index.json
+done
