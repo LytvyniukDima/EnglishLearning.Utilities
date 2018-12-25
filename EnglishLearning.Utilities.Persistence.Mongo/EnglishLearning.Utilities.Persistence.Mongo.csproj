@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EnglishLearning.Utilities.Configurations\EnglishLearning.Utilities.Configurations.csproj" />
       <ProjectReference Include="..\EnglishLearning.Utilities.Persistence\EnglishLearning.Utilities.Persistence.csproj" />
     </ItemGroup>
 
