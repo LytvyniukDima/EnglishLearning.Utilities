@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using EnglishLearning.Utilities.Persistence.Interfaces;
+using EnglishLearning.Utilities.Persistence.Mongo.Contexts;
 using EnglishLearning.Utilities.Persistence.Mongo.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -11,12 +12,12 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
 {
     public abstract class BaseStringIdWithInfoModelRepository<T, TInfo> : IBaseWithInfoModelRepository<T, TInfo> where T: class, IStringIdEntity where TInfo: class
     {
-        protected readonly IMongoContext _dbContext;
+        protected readonly MongoContext _dbContext;
         protected readonly IMongoCollection<T> _collection;
 
         protected abstract ProjectionDefinition<T, TInfo> InfoModelProjectionDefinition { get; }
         
-        protected BaseStringIdWithInfoModelRepository(IMongoContext dbContext, string collectionName)
+        protected BaseStringIdWithInfoModelRepository(MongoContext dbContext, string collectionName)
         {
             _dbContext = dbContext;
             _collection = dbContext.GetCollection<T>(collectionName);
