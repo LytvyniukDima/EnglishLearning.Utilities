@@ -20,7 +20,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
         protected BaseStringIdWithInfoModelRepository(MongoContext dbContext, string collectionName)
         {
             _dbContext = dbContext;
-            _collection = dbContext.GetCollection<T>(collectionName);
+            _collection = dbContext.GetCollection<T>();
         }
 
         public virtual async Task<IEnumerable<T>> GetAllAsync()

@@ -17,7 +17,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
         protected BaseStringIdMongoRepository(MongoContext dbContext, string collectionName)
         {
             _dbContext = dbContext;
-            _collection = dbContext.GetCollection<T>(collectionName);
+            _collection = dbContext.GetCollection<T>();
         }
 
         public virtual async Task<IEnumerable<T>> GetAllAsync()
