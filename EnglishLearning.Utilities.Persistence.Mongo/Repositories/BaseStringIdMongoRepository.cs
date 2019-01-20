@@ -14,7 +14,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
         protected readonly MongoContext _dbContext;
         protected readonly IMongoCollection<T> _collection;
 
-        protected BaseStringIdMongoRepository(MongoContext dbContext, string collectionName)
+        protected BaseStringIdMongoRepository(MongoContext dbContext)
         {
             _dbContext = dbContext;
             _collection = dbContext.GetCollection<T>();

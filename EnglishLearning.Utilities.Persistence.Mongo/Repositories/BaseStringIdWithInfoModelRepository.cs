@@ -17,7 +17,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
 
         protected abstract ProjectionDefinition<T, TInfo> InfoModelProjectionDefinition { get; }
         
-        protected BaseStringIdWithInfoModelRepository(MongoContext dbContext, string collectionName)
+        protected BaseStringIdWithInfoModelRepository(MongoContext dbContext)
         {
             _dbContext = dbContext;
             _collection = dbContext.GetCollection<T>();
