@@ -21,7 +21,7 @@ steps:
     projects: '**/*.csproj'
     versioningScheme: byPrereleaseNumber
     verbosityPack: minimal
-    packagesDirectory: "/nupkg"
+    packagesDirectory: '$(Build.ArtifactStagingDirectory)'
     requestedMajorVersion: 1
     requestedMinorVersion: 1
     requestedPatchVersion: 0
@@ -29,5 +29,5 @@ steps:
   inputs:
     command: push
     NuGetFeedType: internal
-    searchPatternPush: '/nupkg/*.nupkg'
+    searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     feedPublish: "https://pkgs.dev.azure.com/englishlearning-study/_packaging/english_learning_nuget/nuget/v3/index.json"
