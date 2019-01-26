@@ -19,7 +19,10 @@ steps:
   inputs:
     command: pack
     projects: '**/*.csproj'
-    versioningScheme: byBuildNumber
+    versioningScheme: byPrereleaseNumber
+    requestedMajorVersion: 1
+    requestedMinorVersion: 1
+    requestedPatchVersion: $(BuildID)
 - task: DotNetCoreCLI@2
   inputs:
     command: push
