@@ -22,7 +22,7 @@ steps:
     versioningScheme: byPrereleaseNumber
     requestedMajorVersion: 1
     requestedMinorVersion: 1
-    requestedPatchVersion: $(BuildID)
+    requestedPatchVersion: 0
 - task: DotNetCoreCLI@2
   inputs:
     command: push
