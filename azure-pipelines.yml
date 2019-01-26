@@ -15,18 +15,6 @@ variables:
   Minor: '1'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
-    command: pack
-    requestedMajorVersion: 1
-    requestedMinorVersion: 1
-    requestedPatchVersion: 0
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    command: push
-    allowPackageConflicts: true
-    feedPublish: "https://pkgs.dev.azure.com/englishlearning-study/_packaging/english_learning_nuget/nuget/v3/index.json"
-
+    command: publish
