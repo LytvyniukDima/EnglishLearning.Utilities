@@ -20,8 +20,9 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: pack
-    versioningScheme: byBuildNumber
-    versionEnvVar: $(Major).$(Minor).$(Build.BuildId)
+    requestedMajorVersion: 1
+    requestedMinorVersion: 1
+    requestedPatchVersion: 0
 - task: NuGetCommand@2
   displayName: 'NuGet push'
   inputs:
