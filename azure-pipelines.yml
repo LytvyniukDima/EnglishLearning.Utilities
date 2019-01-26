@@ -21,7 +21,7 @@ steps:
   inputs:
     command: pack
     versioningScheme: byBuildNumber
-    versionEnvVar: $(Major).$(Minor).$(Rev:r)
+    versionEnvVar: $(Major).$(Minor).$(Build.BuildId)
 - task: NuGetCommand@2
   displayName: 'NuGet push'
   inputs:
