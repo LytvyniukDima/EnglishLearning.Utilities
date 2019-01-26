@@ -17,4 +17,5 @@ variables:
 steps:
 - task: DotNetCoreCLI@2
   inputs:
-    command: publish
+    command: pack
+    projects: '**/*.csproj'
