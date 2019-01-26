@@ -11,7 +11,21 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  Major: '1'
+  Minor: '1'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    versioningScheme: byBuildNumber
+    versionEnvVar: $(Major).$(Minor).$(Rev:r)
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    allowPackageConflicts: true
+    feedPublish: "https://pkgs.dev.azure.com/englishlearning-study/_packaging/english_learning_nuget/nuget/v3/index.json"
+
