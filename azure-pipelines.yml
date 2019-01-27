@@ -30,4 +30,4 @@ steps:
     command: push
     allowPackageConflicts: true
     searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    feedPublish: 'https://pkgs.dev.azure.com/englishlearning-study/_packaging/english_learning_nuget'
+    feedPublish: 'english_learning_nuget'
