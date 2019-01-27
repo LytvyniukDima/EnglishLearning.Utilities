@@ -25,9 +25,9 @@ steps:
     requestedMajorVersion: 1
     requestedMinorVersion: 1
     requestedPatchVersion: 0
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   inputs:
     command: push
-    NuGetFeedType: internal
+    allowPackageConflicts: true
     searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     feedPublish: 'https://pkgs.dev.azure.com/englishlearning-study/_packaging/english_learning_nuget/nuget/v3/index.json'
