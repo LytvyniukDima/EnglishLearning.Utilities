@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,6 +10,7 @@
         <ProjectReference Include="..\EnglishLearning.Utilities.Expressions\EnglishLearning.Utilities.Expressions.csproj" />
         <ProjectReference Include="..\EnglishLearning.Utilities.Linq\EnglishLearning.Utilities.Linq.csproj" />
         <ProjectReference Include="..\EnglishLearning.Utilities.Persistence.Mongo\EnglishLearning.Utilities.Persistence.Mongo.csproj" />
+        <ProjectReference Include="..\EnglishLearning.Utilities.Persistence.Redis\EnglishLearning.Utilities.Persistence.Redis.csproj" />
         <ProjectReference Include="..\EnglishLearning.Utilities.Persistence\EnglishLearning.Utilities.Persistence.csproj" />
     </ItemGroup>
     
