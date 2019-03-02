@@ -12,7 +12,7 @@ namespace EnglishLearning.Utilities.Persistence.Interfaces
         Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> filter);
         Task AddAsync(T item);
         Task<bool> DeleteAsync(Expression<Func<T, bool>> filter);
-        Task<bool> UpdateAsync(string id, T item);
+        Task<bool> UpdateAsync(T item);
         Task<bool> DeleteAllAsync();
     }
 }

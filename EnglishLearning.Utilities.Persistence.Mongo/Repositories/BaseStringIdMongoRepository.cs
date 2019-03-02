@@ -46,9 +46,9 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
             return actionResult.IsAcknowledged && actionResult.DeletedCount > 0;
         }
 
-        public virtual async Task<bool> UpdateAsync(string id, T item)
+        public virtual async Task<bool> UpdateAsync(T item)
         {
-            var actionResult = await _collection.ReplaceOneAsync(x => x.Id == id, item);
+            var actionResult = await _collection.ReplaceOneAsync(x => x.Id == item.Id, item);
             return actionResult.IsAcknowledged && actionResult.ModifiedCount > 0;
         }
 
