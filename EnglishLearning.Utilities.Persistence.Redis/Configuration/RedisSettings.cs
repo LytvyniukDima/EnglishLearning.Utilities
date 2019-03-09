@@ -11,7 +11,7 @@ namespace EnglishLearning.Utilities.Persistence.Redis.Configuration
             var redisConfiguration = configuration.GetRedisConfiguration(connectionStringKey);
             services.AddSingleton(redisConfiguration);
             
-            services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost"));
+            services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfiguration.ConnectionString));
             
             return services;
         }
