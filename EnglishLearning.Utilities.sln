@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.All", "EnglishLearning.Utilities.All\EnglishLearning.Utilities.All.csproj", "{0A5F8542-E798-4CD0-9E13-995ED534695D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Linq", "EnglishLearning.Utilities.Linq\EnglishLearning.Utilities.Linq.csproj", "{77382CB6-E0DE-4141-89C1-4E053B3EB74C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Expressions", "EnglishLearning.Utilities.Expressions\EnglishLearning.Utilities.Expressions.csproj", "{068CD7AC-0F87-46F2-BB33-95A15FC335CD}"
@@ -34,18 +32,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Debug|x64.Build.0 = Debug|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Debug|x86.Build.0 = Debug|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Release|x64.ActiveCfg = Release|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Release|x64.Build.0 = Release|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Release|x86.ActiveCfg = Release|Any CPU
-		{0A5F8542-E798-4CD0-9E13-995ED534695D}.Release|x86.Build.0 = Release|Any CPU
 		{77382CB6-E0DE-4141-89C1-4E053B3EB74C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77382CB6-E0DE-4141-89C1-4E053B3EB74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77382CB6-E0DE-4141-89C1-4E053B3EB74C}.Debug|x64.ActiveCfg = Debug|Any CPU
