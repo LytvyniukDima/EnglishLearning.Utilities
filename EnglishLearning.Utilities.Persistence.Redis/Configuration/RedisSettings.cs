@@ -1,3 +1,5 @@
+using EnglishLearning.Utilities.Persistence.Interfaces;
+using EnglishLearning.Utilities.Persistence.Redis.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
@@ -12,6 +14,8 @@ namespace EnglishLearning.Utilities.Persistence.Redis.Configuration
             services.AddSingleton(redisConfiguration);
             
             services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfiguration.ConnectionString));
+            
+            services.AddSingleton<IKeyValueRepository, RedisRepository>();
             
             return services;
         }

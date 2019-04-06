@@ -12,4 +12,8 @@
       <PackageReference Include="StackExchange.Redis" Version="2.0.519" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\EnglishLearning.Utilities.Persistence\EnglishLearning.Utilities.Persistence.csproj" />
+    </ItemGroup>
+
 </Project>
