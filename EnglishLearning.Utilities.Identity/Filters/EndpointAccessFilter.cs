@@ -1,17 +1,21 @@
+using System.Linq;
+using System.Security.Authentication;
+using EnglishLearning.Utilities.Identity.Abstractions;
 using EnglishLearning.Utilities.Identity.Extensions;
 using EnglishLearning.Utilities.Identity.Interfaces;
-using EnglishLearning.Utilities.Identity.Services;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace EnglishLearning.Utilities.Identity.Filters
 {
-    public class LogActionFilter : IActionFilter
+    public class EndpointAccessFilter : IActionFilter
     {
         private readonly IAuthInfoProvider _authInfoProvider;
+        private readonly IJwtInfoProvider _jwtInfoProvider;
         
-        public LogActionFilter(IAuthInfoProvider authInfoProvider)
+        public EndpointAccessFilter(IAuthInfoProvider authInfoProvider, IJwtInfoProvider jwtInfoProvider)
         {
             _authInfoProvider = authInfoProvider;
+            _jwtInfoProvider = jwtInfoProvider;
         }
         
         public void OnActionExecuted(ActionExecutedContext context)
@@ -26,6 +30,9 @@ namespace EnglishLearning.Utilities.Identity.Filters
             var authorizeRoles = _authInfoProvider.GetAuthorizeRoles(endpointInfo);
             if (authorizeRoles == null)
                 return;
+            
+            if (!_jwtInfoProvider.IsAuthorized || !authorizeRoles.Contains(_jwtInfoProvider.Role))
+                throw new AuthenticationException();
         }
     }
 }

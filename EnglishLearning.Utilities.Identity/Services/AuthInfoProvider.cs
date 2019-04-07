@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace EnglishLearning.Utilities.Identity.Services
 {
-    public class AuthInfoProvider: IAuthInfoProvider
+    internal class AuthInfoProvider: IAuthInfoProvider
     {
         private readonly IActionDescriptorCollectionProvider _actionDescriptorProvider;
         private List<AuthorizeEndpointInfo> _authRoutesTemplates;
