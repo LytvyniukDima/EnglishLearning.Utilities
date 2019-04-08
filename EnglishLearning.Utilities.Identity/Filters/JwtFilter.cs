@@ -66,7 +66,8 @@ namespace EnglishLearning.Utilities.Identity.Filters
 
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            context.HttpContext.SetJwtToken(_jwtInfoProvider.Jwt);
+            if (_jwtInfoProvider.IsAuthorized)
+                context.HttpContext.SetJwtToken(_jwtInfoProvider.Jwt);
         }
     }
 }
