@@ -9,7 +9,7 @@ namespace EnglishLearning.Utilities.Identity.Configuration
 {
     public static class IdentityServicesConfiguration
     {
-        public static IServiceCollection AddEnglishLearningIdentity(IServiceCollection services)
+        public static IServiceCollection AddEnglishLearningIdentity(this IServiceCollection services)
         {
             services.AddScoped<IJwtInfoProvider, JwtInfoProvider>();
             services.AddSingleton<IJwtSecretKeyProvider, JwtSecretKeyProvider>();
