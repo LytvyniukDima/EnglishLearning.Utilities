@@ -52,7 +52,7 @@ namespace EnglishLearning.Utilities.Identity.Filters
             var refreshTokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(decodedToken.Claims),
-                Expires = DateTime.UtcNow.AddMinutes(5),
+                Expires = DateTime.UtcNow.AddMinutes(20),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(encodedKey), SecurityAlgorithms.HmacSha256Signature)
             };
             var refreshToken = _jwtSecurityTokenHandler.CreateToken(refreshTokenDescriptor);
