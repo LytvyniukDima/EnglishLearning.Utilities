@@ -27,7 +27,7 @@ namespace EnglishLearning.Utilities.Identity.Services
         }
         
         private void FillAuthRoutesTemplates()
-        {            
+        {
             _authRoutesTemplates = _actionDescriptorProvider.ActionDescriptors.Items
                 .Where(x => x.EndpointMetadata.Any(y => y is EnglishLearningAuthorizeAttribute))
                 .Select(x => x.GetAuthorizeEndpointInfo())

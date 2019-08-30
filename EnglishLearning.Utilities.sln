@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.General", "EnglishLearning.Utilities.General\EnglishLearning.Utilities.General.csproj", "{FCC456AB-46C4-446F-A78E-3787D90C19D1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageBrokers", "MessageBrokers", "{1F69B2E7-4F23-4C33-B095-295283434F49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.MessageBrokers.Kafka", "EnglishLearning.Utilities.MessageBrokers.Kafka\EnglishLearning.Utilities.MessageBrokers.Kafka.csproj", "{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -160,6 +164,18 @@ Global
 		{FCC456AB-46C4-446F-A78E-3787D90C19D1}.Release|x64.Build.0 = Release|Any CPU
 		{FCC456AB-46C4-446F-A78E-3787D90C19D1}.Release|x86.ActiveCfg = Release|Any CPU
 		{FCC456AB-46C4-446F-A78E-3787D90C19D1}.Release|x86.Build.0 = Release|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Debug|x64.Build.0 = Debug|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Debug|x86.Build.0 = Debug|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Release|x64.ActiveCfg = Release|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Release|x64.Build.0 = Release|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Release|x86.ActiveCfg = Release|Any CPU
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9B31F1BF-39B7-4A71-87DA-FE0FDB394858} = {2FD46DB6-95E4-467D-BAF5-F6DF40A150F4}
@@ -167,5 +183,6 @@ Global
 		{DE12E91F-9DA3-41A2-88FB-167021DFF2D5} = {2FD46DB6-95E4-467D-BAF5-F6DF40A150F4}
 		{33947B2D-5385-4A5D-99D4-A951B87F5E40} = {7C0D5976-88C4-429E-A0E8-9F725BA9B577}
 		{8AEC869D-31B7-4806-A8D5-8A5076D071CD} = {7C0D5976-88C4-429E-A0E8-9F725BA9B577}
+		{EEA958EA-B3FF-4211-8E47-CDC4A8E0EF7A} = {1F69B2E7-4F23-4C33-B095-295283434F49}
 	EndGlobalSection
 EndGlobal
