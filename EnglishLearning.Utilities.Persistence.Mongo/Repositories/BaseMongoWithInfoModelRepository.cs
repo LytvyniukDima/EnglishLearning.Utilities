@@ -18,7 +18,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
             
         }
 
-        public async Task<IEnumerable<TInfo>> GetAllInfoAsync()
+        public async Task<IReadOnlyList<TInfo>> GetAllInfoAsync()
         {
             var infoModels = await _collection
                 .Find(new BsonDocument())
@@ -28,7 +28,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
             return infoModels;
         }
 
-        public async Task<IEnumerable<TInfo>> FindAllInfoAsync(Expression<Func<T, bool>> filter)
+        public async Task<IReadOnlyList<TInfo>> FindAllInfoAsync(Expression<Func<T, bool>> filter)
         {
             var infoModels = await _collection
                 .Find(filter)

@@ -19,7 +19,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
             _collection = dbContext.GetCollection<T>();
         }
 
-        public virtual async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _collection.Find(_ => true).ToListAsync();
         }
@@ -29,7 +29,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
             return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public virtual async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> filter)
+        public virtual async Task<IReadOnlyList<T>> FindAllAsync(Expression<Func<T, bool>> filter)
         {
             return await _collection.Find(filter).ToListAsync();
         }
