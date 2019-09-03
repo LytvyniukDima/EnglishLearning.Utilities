@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EnglishLearning.Utilities.Persistence.Interfaces
 {
-    public interface IBaseRepository<T> where T: class
+    public interface IBaseRepository<T, TId> where T: class, IEntity<TId>
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> FindAsync(Expression<Func<T, bool>> filter);

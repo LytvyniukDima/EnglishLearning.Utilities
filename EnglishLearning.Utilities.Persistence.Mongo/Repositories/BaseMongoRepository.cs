@@ -4,17 +4,16 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using EnglishLearning.Utilities.Persistence.Interfaces;
 using EnglishLearning.Utilities.Persistence.Mongo.Contexts;
-using EnglishLearning.Utilities.Persistence.Mongo.Interfaces;
 using MongoDB.Driver;
 
 namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
 {
-    public abstract class BaseStringIdMongoRepository<T> : IBaseRepository<T> where T: class, IStringIdEntity
+    public abstract class BaseMongoRepository<T, TId> : IBaseRepository<T, TId> where T: class, IEntity<TId>
     {
         protected readonly MongoContext _dbContext;
         protected readonly IMongoCollection<T> _collection;
 
-        protected BaseStringIdMongoRepository(MongoContext dbContext)
+        protected BaseMongoRepository(MongoContext dbContext)
         {
             _dbContext = dbContext;
             _collection = dbContext.GetCollection<T>();
@@ -48,7 +47,7 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
 
         public virtual async Task<bool> UpdateAsync(T item)
         {
-            var actionResult = await _collection.ReplaceOneAsync(x => x.Id == item.Id, item);
+            var actionResult = await _collection.ReplaceOneAsync(x => x.Id.Equals(item.Id), item);
             return actionResult.IsAcknowledged && actionResult.ModifiedCount > 0;
         }
 
