@@ -12,7 +12,8 @@ namespace EnglishLearning.Utilities.Expressions.Helpers
             this.map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
         }
 
-        public static Expression ReplaceParameters(Dictionary<ParameterExpression, ParameterExpression> map,
+        public static Expression ReplaceParameters(
+            Dictionary<ParameterExpression, ParameterExpression> map,
             Expression exp)
         {
             return new ParameterRebinder(map).Visit(exp);
@@ -22,12 +23,10 @@ namespace EnglishLearning.Utilities.Expressions.Helpers
         {
             ParameterExpression replacement;
 
-
             if (map.TryGetValue(p, out replacement))
             {
                 p = replacement;
             }
-
 
             return base.VisitParameter(p);
         }
