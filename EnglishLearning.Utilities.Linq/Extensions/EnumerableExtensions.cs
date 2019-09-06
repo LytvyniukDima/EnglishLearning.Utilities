@@ -52,5 +52,16 @@ namespace EnglishLearning.Utilities.Linq.Extensions
 
             return resultList;
         }
+        
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> sequence)
+        {
+            if (sequence == null)
+                return true;
+
+            if (!sequence.Any())
+                return true;
+
+            return false;
+        }
     }
 }
