@@ -1,4 +1,4 @@
-using EnglishLearning.Utilities.Persistence.Interfaces;
+﻿using EnglishLearning.Utilities.Persistence.Interfaces;
 using StackExchange.Redis;
 
 namespace EnglishLearning.Utilities.Persistence.Redis.Repositories

@@ -1,4 +1,4 @@
-namespace EnglishLearning.Utilities.Persistence.Redis.Configuration
+﻿namespace EnglishLearning.Utilities.Persistence.Redis.Configuration
 {
     public class RedisConfiguration
     {
