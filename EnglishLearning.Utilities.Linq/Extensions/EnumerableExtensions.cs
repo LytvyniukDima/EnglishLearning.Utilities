@@ -11,14 +11,20 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         public static T GetRandomElement<T>(this IEnumerable<T> sequence)
         {
             if (sequence == null)
+            {
                 throw new ArgumentException();
+            }
 
             List<T> list;
             if ((list = sequence as List<T>) == null)
+            {
                 list = new List<T>(sequence);
-                
+            }
+
             if (!list.Any())
+            {
                 return default(T);
+            }
 
             return list.ElementAt(random.Next(0, list.Count));
         }
@@ -26,20 +32,30 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         public static IEnumerable<T> GetRandomCountOfElements<T>(this IEnumerable<T> sequence, int count)
         {
             if (sequence == null)
+            {
                 throw new ArgumentException();
-            
+            }
+
             if (count < 0)
+            {
                 throw new ArgumentOutOfRangeException();
-            
+            }
+
             List<T> list;
             if ((list = sequence as List<T>) == null)
+            {
                 list = new List<T>(sequence);
-            
+            }
+
             if (!list.Any())
+            {
                 return Enumerable.Empty<T>();
-            
+            }
+
             if (list.Count <= count)
+            {
                 return list;
+            }
 
             var resultList = new List<T>();
             
@@ -56,10 +72,14 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> sequence)
         {
             if (sequence == null)
+            {
                 return true;
+            }
 
             if (!sequence.Any())
+            {
                 return true;
+            }
 
             return false;
         }

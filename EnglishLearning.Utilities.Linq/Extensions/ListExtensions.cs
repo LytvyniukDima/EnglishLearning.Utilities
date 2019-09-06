@@ -8,7 +8,9 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         public static T RemoveAndGetFromList<T>(this IList<T> list, int index)
         {
             if (index >= list.Count || index < 0)
+            {
                 throw new IndexOutOfRangeException();
+            }
 
             var element = list[index];
             list.RemoveAt(index);
@@ -16,7 +18,7 @@ namespace EnglishLearning.Utilities.Linq.Extensions
             return element;
         }
         
-        public static IReadOnlyList<KeyValuePair<int,int>> SplintOnRangesIndexes<T>(this List<T> list, int sizeOfRanges)
+        public static IReadOnlyList<KeyValuePair<int, int>> SplintOnRangesIndexes<T>(this List<T> list, int sizeOfRanges)
         {
             var result = new List<KeyValuePair<int, int>>();
             
