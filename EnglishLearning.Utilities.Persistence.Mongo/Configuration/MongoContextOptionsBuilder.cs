@@ -20,5 +20,12 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Configuration
             
             return this;
         }
+        
+        public MongoContextOptionsBuilder CollectionSettings(Action<MongoCollectionSettings> collectionSettingsAction)
+        {
+            collectionSettingsAction.Invoke(_mongoContext.CollectionSettings);
+            
+            return this;
+        }
     }
 }
