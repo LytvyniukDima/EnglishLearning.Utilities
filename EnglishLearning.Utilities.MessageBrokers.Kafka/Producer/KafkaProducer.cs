@@ -4,6 +4,7 @@ using EnglishLearning.Utilities.MessageBrokers.Kafka.Abstraction;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers.Abstraction;
 using Microsoft.Extensions.Options;
+using Serilog;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Producer
 {
@@ -28,6 +29,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Producer
         
         public Task<DeliveryResult<Null, T>> Produce(string topicName, T message)
         {
+            Log.Information($"Send message {typeof(T).Name} to {topicName}");
             return _producer.ProduceAsync(topicName, new Message<Null, T> {  Value = message });
         }
 

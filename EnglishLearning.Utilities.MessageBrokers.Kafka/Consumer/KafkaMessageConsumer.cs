@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Abstraction;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers.Abstraction;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 {
@@ -41,7 +42,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
                     catch (Exception ex)
                     {
                         exception = ex;
-                        //Log.Error($"Retry message {typeof(T).Name}. Retry count {i + 1}. Exception {ex}");
+                        Log.Error($"Retry message {typeof(T).Name}. Retry count {i + 1}. Exception {ex}");
                         await Task.Delay(RETRY_TIMEOUT);
                     }   
                 }

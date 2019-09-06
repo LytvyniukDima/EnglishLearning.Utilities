@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 {
@@ -40,7 +39,6 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 
         private Dictionary<string, IKafkaMessageConsumer> GetConsumersCache()
         {
-            Log.Error("In initializer");
             var consumerCache = new Dictionary<string, IKafkaMessageConsumer>();
             foreach (var topic in TopicConsumerTypes.Keys)
             {
