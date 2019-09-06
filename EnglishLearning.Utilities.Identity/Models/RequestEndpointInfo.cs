@@ -1,4 +1,4 @@
-namespace EnglishLearning.Utilities.Identity.Models
+﻿namespace EnglishLearning.Utilities.Identity.Models
 {
     public class RequestEndpointInfo
     {

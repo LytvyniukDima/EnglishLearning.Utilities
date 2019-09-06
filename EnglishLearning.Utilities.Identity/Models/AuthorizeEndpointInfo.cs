@@ -1,4 +1,4 @@
-using EnglishLearning.Utilities.Identity.Abstractions;
+﻿using EnglishLearning.Utilities.Identity.Abstractions;
 
 namespace EnglishLearning.Utilities.Identity.Models
 {
@@ -11,7 +11,9 @@ namespace EnglishLearning.Utilities.Identity.Models
         public bool IsAuthorizeNeeded(RequestEndpointInfo requestEndpointInfo)
         {
             if (requestEndpointInfo.HttpMethod == HttpMethod && requestEndpointInfo.RouteTemplate == RouteTemplate)
+            {
                 return true;
+            }
 
             return false;
         }

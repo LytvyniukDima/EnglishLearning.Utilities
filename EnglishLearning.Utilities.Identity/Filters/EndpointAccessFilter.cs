@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Authentication;
 using EnglishLearning.Utilities.Identity.Abstractions;
 using EnglishLearning.Utilities.Identity.Extensions;
@@ -20,7 +20,6 @@ namespace EnglishLearning.Utilities.Identity.Filters
         
         public void OnActionExecuted(ActionExecutedContext context)
         {
-
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
@@ -29,10 +28,14 @@ namespace EnglishLearning.Utilities.Identity.Filters
 
             var authorizeRoles = _authInfoProvider.GetAuthorizeRoles(endpointInfo);
             if (authorizeRoles == null)
+            {
                 return;
-            
+            }
+
             if (!_jwtInfoProvider.IsAuthorized || !authorizeRoles.Contains(_jwtInfoProvider.Role))
+            {
                 throw new AuthenticationException();
+            }
         }
     }
 }

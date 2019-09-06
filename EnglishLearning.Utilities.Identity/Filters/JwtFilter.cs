@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace EnglishLearning.Utilities.Identity.Filters
 {
-    public class JwtFilter: IActionFilter
+    public class JwtFilter : IActionFilter
     {
         private readonly IJwtInfoProvider _jwtInfoProvider;
         private readonly IJwtSecretKeyProvider _jwtSecretKeyProvider;
@@ -26,7 +26,7 @@ namespace EnglishLearning.Utilities.Identity.Filters
         public void OnActionExecuting(ActionExecutingContext context)
         {
             var jwt = context.HttpContext.GetJwtToken();
-            if (String.IsNullOrEmpty(jwt))
+            if (string.IsNullOrEmpty(jwt))
             {
                 _jwtInfoProvider.IsAuthorized = false;
                 return;
@@ -42,7 +42,7 @@ namespace EnglishLearning.Utilities.Identity.Filters
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
                 ClockSkew = TimeSpan.Zero,
-                IssuerSigningKey  = new SymmetricSecurityKey(encodedKey),
+                IssuerSigningKey = new SymmetricSecurityKey(encodedKey),
             };
             
             var decodedToken = _jwtSecurityTokenHandler.ValidateToken(jwt, validationParameters, out var securityToken);
@@ -53,7 +53,7 @@ namespace EnglishLearning.Utilities.Identity.Filters
             {
                 Subject = new ClaimsIdentity(decodedToken.Claims),
                 Expires = DateTime.UtcNow.AddMinutes(20),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(encodedKey), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(encodedKey), SecurityAlgorithms.HmacSha256Signature),
             };
             var refreshToken = _jwtSecurityTokenHandler.CreateToken(refreshTokenDescriptor);
             var refreshedJwt = _jwtSecurityTokenHandler.WriteToken(refreshToken);
@@ -67,7 +67,9 @@ namespace EnglishLearning.Utilities.Identity.Filters
         public void OnActionExecuted(ActionExecutedContext context)
         {
             if (_jwtInfoProvider.IsAuthorized)
+            {
                 context.HttpContext.SetJwtToken(_jwtInfoProvider.Jwt);
+            }
         }
     }
 }

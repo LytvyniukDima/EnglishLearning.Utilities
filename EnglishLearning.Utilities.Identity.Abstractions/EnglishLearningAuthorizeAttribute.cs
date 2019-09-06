@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
 namespace EnglishLearning.Utilities.Identity.Abstractions
 {
-    public class EnglishLearningAuthorizeAttribute: Attribute
+    public class EnglishLearningAuthorizeAttribute : Attribute
     {
         public EnglishLearningAuthorizeAttribute()
         {
@@ -17,7 +17,7 @@ namespace EnglishLearning.Utilities.Identity.Abstractions
         {
             AuthorizeRole.BaseCustomer,
             AuthorizeRole.Admin,
-            AuthorizeRole.SubscribedCustomer
+            AuthorizeRole.SubscribedCustomer,
         };
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Security.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
@@ -13,12 +13,14 @@ namespace EnglishLearning.Utilities.Identity.Extensions
 
             if (!headers.TryGetValue("Authorization", out StringValues token))
             {
-                return String.Empty;
+                return string.Empty;
             }
             
             var splitedToken = token.ToString().Split(' ');
             if (splitedToken.Length != 2)
+            {
                 throw new AuthenticationException("Incorrect Authorization header");
+            }
 
             var jwt = splitedToken[1];
             

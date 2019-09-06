@@ -1,4 +1,4 @@
-using EnglishLearning.Utilities.Identity.Models;
+﻿using EnglishLearning.Utilities.Identity.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace EnglishLearning.Utilities.Identity.Extensions
@@ -13,7 +13,7 @@ namespace EnglishLearning.Utilities.Identity.Extensions
             return new RequestEndpointInfo
             {
                 HttpMethod = httpMethod,
-                RouteTemplate = template
+                RouteTemplate = template,
             };
         }
     }

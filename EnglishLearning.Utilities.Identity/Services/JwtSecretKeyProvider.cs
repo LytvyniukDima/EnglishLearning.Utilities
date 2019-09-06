@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using EnglishLearning.Utilities.Identity.Interfaces;
 using EnglishLearning.Utilities.Persistence.Interfaces;
 
@@ -6,7 +6,7 @@ namespace EnglishLearning.Utilities.Identity.Services
 {
     internal class JwtSecretKeyProvider : IJwtSecretKeyProvider
     {
-        private const string keyOfSecretKey = "IdentityJwtSecretKey";
+        private const string KeyOfSecretKey = "IdentityJwtSecretKey";
         
         private readonly IKeyValueRepository _keyValueRepository;
 
@@ -17,10 +17,12 @@ namespace EnglishLearning.Utilities.Identity.Services
 
         public string GetSecretKey()
         {
-            var secretKey = _keyValueRepository.GetStringValueByKey(keyOfSecretKey);
-            if (String.IsNullOrEmpty(secretKey))
+            var secretKey = _keyValueRepository.GetStringValueByKey(KeyOfSecretKey);
+            if (string.IsNullOrEmpty(secretKey))
+            {
                 throw new Exception("Secret key not found");
-            
+            }
+
             return secretKey;
         }
     }

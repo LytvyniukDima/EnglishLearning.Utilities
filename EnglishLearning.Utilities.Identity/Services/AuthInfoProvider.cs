@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using EnglishLearning.Utilities.Identity.Abstractions;
 using EnglishLearning.Utilities.Identity.Extensions;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace EnglishLearning.Utilities.Identity.Services
 {
-    internal class AuthInfoProvider: IAuthInfoProvider
+    internal class AuthInfoProvider : IAuthInfoProvider
     {
         private readonly IActionDescriptorCollectionProvider _actionDescriptorProvider;
         private List<AuthorizeEndpointInfo> _authRoutesTemplates;
