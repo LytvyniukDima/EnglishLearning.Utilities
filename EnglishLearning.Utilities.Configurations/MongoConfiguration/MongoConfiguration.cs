@@ -1,4 +1,4 @@
-namespace EnglishLearning.Utilities.Configurations.MongoConfiguration
+﻿namespace EnglishLearning.Utilities.Configurations.MongoConfiguration
 {
     public class MongoConfiguration
     {
