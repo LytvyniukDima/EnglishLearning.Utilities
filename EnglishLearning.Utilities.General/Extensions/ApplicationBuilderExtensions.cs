@@ -1,4 +1,4 @@
-using EnglishLearning.Utilities.General.Middlewares;
+﻿using EnglishLearning.Utilities.General.Middlewares;
 using Microsoft.AspNetCore.Builder;
 
 namespace EnglishLearning.Utilities.General.Extensions
