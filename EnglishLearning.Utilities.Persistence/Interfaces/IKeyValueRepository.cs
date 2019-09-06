@@ -1,4 +1,4 @@
-namespace EnglishLearning.Utilities.Persistence.Interfaces
+﻿namespace EnglishLearning.Utilities.Persistence.Interfaces
 {
     public interface IKeyValueRepository
     {
