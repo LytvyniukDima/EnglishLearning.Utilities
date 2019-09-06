@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace EnglishLearning.Utilities.Persistence.Mongo.Configuration
 {
-    public  class MongoCollectionNamesProvider
+    public class MongoCollectionNamesProvider
     {
         private readonly Dictionary<Type, string> _collectionNames;
 

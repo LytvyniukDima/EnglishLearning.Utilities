@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -9,14 +9,16 @@ using MongoDB.Driver;
 
 namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
 {
-    public abstract class BaseMongoWithInfoModelRepository<T, TInfo, TId> : BaseMongoRepository<T, TId>, IBaseWithInfoModelRepository<T, TInfo, TId> where T: class, IEntity<TId> where TInfo: class
+    public abstract class BaseMongoWithInfoModelRepository<T, TInfo, TId> : BaseMongoRepository<T, TId>, IBaseWithInfoModelRepository<T, TInfo, TId> 
+        where T : class, IEntity<TId> 
+        where TInfo : class
     {
-        protected abstract ProjectionDefinition<T, TInfo> InfoModelProjectionDefinition { get; }
-        
-        protected BaseMongoWithInfoModelRepository(MongoContext dbContext): base(dbContext)
+        protected BaseMongoWithInfoModelRepository(MongoContext mongoContext) 
+            : base(mongoContext)
         {
-            
         }
+        
+        protected abstract ProjectionDefinition<T, TInfo> InfoModelProjectionDefinition { get; }
 
         public async Task<IReadOnlyList<TInfo>> GetAllInfoAsync()
         {

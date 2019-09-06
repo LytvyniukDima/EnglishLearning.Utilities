@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -8,15 +8,16 @@ using MongoDB.Driver;
 
 namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
 {
-    public abstract class BaseMongoRepository<T, TId> : IBaseRepository<T, TId> where T: class, IEntity<TId>
+    public abstract class BaseMongoRepository<T, TId> : IBaseRepository<T, TId> 
+        where T : class, IEntity<TId>
     {
-        protected readonly MongoContext _dbContext;
+        protected readonly MongoContext _mongoContext;
         protected readonly IMongoCollection<T> _collection;
 
-        protected BaseMongoRepository(MongoContext dbContext)
+        protected BaseMongoRepository(MongoContext mongoContext)
         {
-            _dbContext = dbContext;
-            _collection = dbContext.GetCollection<T>();
+            _mongoContext = mongoContext;
+            _collection = _mongoContext.GetCollection<T>();
         }
 
         public virtual async Task<IReadOnlyList<T>> GetAllAsync()
