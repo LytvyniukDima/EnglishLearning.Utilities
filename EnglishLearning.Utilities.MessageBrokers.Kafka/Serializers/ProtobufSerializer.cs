@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers.Abstraction;
 using ProtoBuf;
@@ -6,7 +6,7 @@ using SerializationContext = Confluent.Kafka.SerializationContext;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers
 {
-    public class ProtobufSerializer<T>: IMessageSerializer<T>
+    public class ProtobufSerializer<T> : IMessageSerializer<T>
     {
         public byte[] Serialize(T data, SerializationContext context)
         {

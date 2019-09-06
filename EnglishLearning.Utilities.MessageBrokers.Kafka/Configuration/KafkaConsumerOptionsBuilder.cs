@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,12 +6,12 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
 {
-    internal class KafkaConsumerOptionsBuilder: IKafkaConsumerOptionsBuilder
+    internal class KafkaConsumerOptionsBuilder : IKafkaConsumerOptionsBuilder
     {
-        private int _partitionCount = 1;
         private readonly Dictionary<string, Type> _topicConsumerTypes;
         private readonly IServiceCollection _services;
-        
+        private int _partitionCount = 1;
+
         public KafkaConsumerOptionsBuilder(IServiceCollection services)
         {
             _topicConsumerTypes = new Dictionary<string, Type>();
@@ -23,9 +23,11 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
             get => _partitionCount;
             set
             {
-                if (value <= 0 )
-                    throw new ArgumentException($"{nameof(PartitionCount)} should be greater than 0"); 
-                
+                if (value <= 0)
+                {
+                    throw new ArgumentException($"{nameof(PartitionCount)} should be greater than 0");
+                }
+
                 _partitionCount = value;   
             }
         }

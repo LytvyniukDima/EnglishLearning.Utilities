@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,10 +9,10 @@ using Serilog;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 {
-    internal class KafkaMessageConsumer<T>: IKafkaMessageConsumer
+    internal class KafkaMessageConsumer<T> : IKafkaMessageConsumer
     {
-        private const int RETRY_COUNT = 3;
-        private const int RETRY_TIMEOUT = 500;
+        private const int RetryCount = 3;
+        private const int RetryTimeout = 500;
         
         private readonly IServiceProvider _serviceProvider;
         private readonly IReadOnlyList<IKafkaMessageHandler<T>> _handlers;
@@ -32,7 +32,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             var exception = default(Exception);
             foreach (var handler in _handlers)
             {
-                for (int i = 0; i < RETRY_COUNT; i++)
+                for (int i = 0; i < RetryCount; i++)
                 {
                     try
                     {
@@ -43,7 +43,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
                     {
                         exception = ex;
                         Log.Error($"Retry message {typeof(T).Name}. Retry count {i + 1}. Exception {ex}");
-                        await Task.Delay(RETRY_TIMEOUT);
+                        await Task.Delay(RetryTimeout);
                     }   
                 }
             }
@@ -51,7 +51,8 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             return KafkaConsumerResultModel.GetFailedResultModel(message, exception);
         }
         
-        private async Task OnMessageAsync<KHandler>(KHandler handler, T message) where KHandler: IKafkaMessageHandler<T>
+        private async Task OnMessageAsync<THandler>(THandler handler, T message) 
+            where THandler : IKafkaMessageHandler<T>
         {
             using (var scope = _serviceProvider.CreateScope())
             {

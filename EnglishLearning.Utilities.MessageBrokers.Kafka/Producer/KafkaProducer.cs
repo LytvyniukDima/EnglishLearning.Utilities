@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Confluent.Kafka;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Abstraction;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration;
@@ -8,7 +8,7 @@ using Serilog;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Producer
 {
-    public class KafkaProducer<T>: IKafkaProducer<T>
+    public class KafkaProducer<T> : IKafkaProducer<T>
     {
         private IProducer<Null, T> _producer;
         private string _topicName;
@@ -30,7 +30,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Producer
         public Task<DeliveryResult<Null, T>> Produce(string topicName, T message)
         {
             Log.Information($"Send message {typeof(T).Name} to {topicName}");
-            return _producer.ProduceAsync(topicName, new Message<Null, T> {  Value = message });
+            return _producer.ProduceAsync(topicName, new Message<Null, T> { Value = message });
         }
 
         public Task<DeliveryResult<Null, T>> Produce(T message)

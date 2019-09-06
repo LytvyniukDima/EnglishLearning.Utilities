@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Confluent.Kafka;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling

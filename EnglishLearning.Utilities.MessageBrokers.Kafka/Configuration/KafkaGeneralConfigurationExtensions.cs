@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Abstraction;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Producer;
@@ -15,10 +15,14 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
             Action<IKafkaGeneralOptionsBuilder> optionsBuilderAction)
         {
             if (services == null)
+            {
                 throw new ArgumentNullException(nameof(services));
+            }
 
             if (optionsBuilderAction == null)
+            {
                 throw new ArgumentNullException(nameof(optionsBuilderAction));
+            }
 
             services.Configure<KafkaSettings>(configuration.GetSection("Kafka"));
             services.AddSingleton(typeof(IKafkaProducer<>), typeof(KafkaProducer<>));

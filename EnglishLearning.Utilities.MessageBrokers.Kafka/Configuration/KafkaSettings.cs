@@ -1,4 +1,4 @@
-namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
+﻿namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
 {
     public class KafkaSettings
     {

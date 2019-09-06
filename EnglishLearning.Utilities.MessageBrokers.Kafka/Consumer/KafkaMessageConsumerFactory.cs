@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 {
-    internal class KafkaMessageConsumerFactory: IKafkaMessageConsumerFactory
+    internal class KafkaMessageConsumerFactory : IKafkaMessageConsumerFactory
     {
         private readonly IServiceProvider _serviceProvider;
 
@@ -12,8 +12,6 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 
         private readonly Dictionary<string, Type> _topicConsumerTypes;
 
-        public IReadOnlyDictionary<string, Type> TopicConsumerTypes  => _topicConsumerTypes;
-        
         public KafkaMessageConsumerFactory(
             IServiceProvider serviceProvider, 
             Dictionary<string, Type> topicConsumerTypes)
@@ -23,6 +21,8 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             _consumerCache = new Lazy<Dictionary<string, IKafkaMessageConsumer>>(GetConsumersCache);
         }
 
+        public IReadOnlyDictionary<string, Type> TopicConsumerTypes => _topicConsumerTypes;
+        
         public IKafkaMessageConsumer GetMessageConsumer(string topic)
         {
             return _consumerCache.Value[topic];
@@ -33,7 +33,9 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             foreach (var topicConsumerType in topicConsumerTypes)
             {
                 if (!topicConsumerTypes.ContainsKey(topicConsumerType.Key))
+                {
                     _topicConsumerTypes.Add(topicConsumerType.Key, topicConsumerType.Value);
+                }
             }
         }
 
@@ -42,7 +44,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             var consumerCache = new Dictionary<string, IKafkaMessageConsumer>();
             foreach (var topic in TopicConsumerTypes.Keys)
             {
-                consumerCache[topic] = (IKafkaMessageConsumer) _serviceProvider.GetRequiredService(TopicConsumerTypes[topic]);
+                consumerCache[topic] = (IKafkaMessageConsumer)_serviceProvider.GetRequiredService(TopicConsumerTypes[topic]);
             }
 
             return consumerCache;

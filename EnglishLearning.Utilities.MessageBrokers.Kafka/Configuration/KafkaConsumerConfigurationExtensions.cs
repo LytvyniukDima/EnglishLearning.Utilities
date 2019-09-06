@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling;
@@ -15,10 +15,14 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
             Action<IKafkaConsumerOptionsBuilder> optionsBuilderAction)
         {
             if (services == null)
+            {
                 throw new ArgumentNullException(nameof(services));
-            
+            }
+
             if (optionsBuilderAction == null)
+            {
                 throw new ArgumentNullException(nameof(optionsBuilderAction));
+            }
 
             var optionsBuilder = new KafkaConsumerOptionsBuilder(services);
             optionsBuilderAction(optionsBuilder);

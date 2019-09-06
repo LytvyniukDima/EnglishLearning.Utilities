@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ProtoBuf;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Contracts.Users
