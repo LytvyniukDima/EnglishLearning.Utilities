@@ -20,6 +20,7 @@ namespace EnglishLearning.Utilities.Identity.Filters
         
         public void OnActionExecuted(ActionExecutedContext context)
         {
+            // Don't require check after action executed
         }
 
         public void OnActionExecuting(ActionExecutingContext context)

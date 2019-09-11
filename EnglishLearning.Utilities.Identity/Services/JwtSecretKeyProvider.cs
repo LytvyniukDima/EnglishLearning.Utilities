@@ -20,7 +20,7 @@ namespace EnglishLearning.Utilities.Identity.Services
             var secretKey = _keyValueRepository.GetStringValueByKey(KeyOfSecretKey);
             if (string.IsNullOrEmpty(secretKey))
             {
-                throw new Exception("Secret key not found");
+                throw new ApplicationException("Secret key not found");
             }
 
             return secretKey;

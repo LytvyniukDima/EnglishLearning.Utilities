@@ -4,6 +4,6 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 {
     internal interface IKafkaMessageConsumer
     {
-        Task<KafkaConsumerResultModel> ConsumeAsync(byte[] message);
+        Task<KafkaConsumerResultModel> ConsumeAsync(byte[] data);
     }
 }

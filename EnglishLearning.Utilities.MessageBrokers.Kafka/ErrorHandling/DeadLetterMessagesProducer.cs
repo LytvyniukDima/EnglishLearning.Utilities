@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Confluent.Kafka;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration;
 using Microsoft.Extensions.Options;
@@ -6,10 +7,10 @@ using Newtonsoft.Json;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling
 {
-    internal class DeadLetterMessagesProducer : IDeadLetterMessagesProducer
+    internal class DeadLetterMessagesProducer : IDeadLetterMessagesProducer, IDisposable
     {
-        private IProducer<Null, string> _producer;
-        private KafkaSettings _configuration;
+        private readonly IProducer<Null, string> _producer;
+        private readonly KafkaSettings _configuration;
 
         public DeadLetterMessagesProducer(IOptions<KafkaSettings> configuration)
         {

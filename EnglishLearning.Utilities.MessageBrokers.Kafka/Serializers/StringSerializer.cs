@@ -11,7 +11,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers
         {
             if (data == null)
             {
-                return null;
+                return Array.Empty<byte>();
             }
 
             return Encoding.UTF8.GetBytes(data);
@@ -31,7 +31,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers
         {
             if (data == null)
             {
-                return null;
+                return Array.Empty<byte>();
             }
 
             return Encoding.UTF8.GetBytes(data);

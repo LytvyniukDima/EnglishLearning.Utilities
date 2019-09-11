@@ -19,7 +19,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
         private readonly IReadOnlyList<string> _subscribedTopics;
         private readonly IDeadLetterMessagesProducer _deadLetterMessagesProducer;
         
-        private int consumerId;
+        private readonly int _consumerId;
         
         public BackgroundPerPartitionConsumer(
             KafkaSettings configuration,
@@ -33,7 +33,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             _subscribedTopics = subscribedTopics;
 
             _consumerCount++;
-            consumerId = _consumerCount;
+            _consumerId = _consumerCount;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -69,7 +69,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
                         {
                             var cr = c.Consume(cts.Token);
                             
-                            Log.Information($"Consuming message from {cr.Topic}. Partition {cr.Partition.Value}. ConsumerId {consumerId}");
+                            Log.Information($"Consuming message from {cr.Topic}. Partition {cr.Partition.Value}. ConsumerId {_consumerId}");
                             var consumer = _consumerFactory.GetMessageConsumer(cr.Topic);
                             var consumerResult = await consumer.ConsumeAsync(cr.Value);
                             if (!consumerResult.IsSuccessful)

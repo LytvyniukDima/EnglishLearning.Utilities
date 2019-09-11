@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Confluent.Kafka;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Abstraction;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration;
@@ -8,11 +9,11 @@ using Serilog;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Producer
 {
-    public class KafkaProducer<T> : IKafkaProducer<T>
+    public sealed class KafkaProducer<T> : IKafkaProducer<T>, IDisposable
     {
-        private IProducer<Null, T> _producer;
-        private string _topicName;
-        private KafkaSettings _configuration;
+        private readonly IProducer<Null, T> _producer;
+        private readonly string _topicName;
+        private readonly KafkaSettings _configuration;
 
         public KafkaProducer(IOptions<KafkaSettings> configuration, IMessageSerializer<T> serializer)
         {

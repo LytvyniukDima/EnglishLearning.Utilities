@@ -9,7 +9,7 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         {
             if (index >= list.Count || index < 0)
             {
-                throw new IndexOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(index));
             }
 
             var element = list[index];

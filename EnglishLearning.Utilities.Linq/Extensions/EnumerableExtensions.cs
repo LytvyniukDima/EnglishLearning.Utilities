@@ -12,7 +12,7 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         {
             if (sequence == null)
             {
-                throw new ArgumentException();
+                throw new ArgumentNullException(nameof(sequence));
             }
 
             List<T> list;
@@ -33,12 +33,12 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         {
             if (sequence == null)
             {
-                throw new ArgumentException();
+                throw new ArgumentNullException(nameof(sequence));
             }
 
             if (count < 0)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(count));
             }
 
             List<T> list;
