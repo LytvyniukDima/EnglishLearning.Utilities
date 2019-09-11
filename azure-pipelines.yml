@@ -6,28 +6,32 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'Ubuntu-16.04'
-
-variables:
-  buildConfiguration: 'Release'
-  Major: '1'
-  Minor: '1'
-
-steps:
-- task: DotNetCoreCLI@2
-  inputs:
-    command: pack
-    projects: '**/*.csproj'
-    versioningScheme: byPrereleaseNumber
-    verbosityPack: minimal
-    packagesDirectory: '$(Build.ArtifactStagingDirectory)'
-    requestedMajorVersion: 1
-    requestedMinorVersion: 1
-    requestedPatchVersion: 0
-- task: NuGetCommand@2
-  inputs:
-    command: push
-    allowPackageConflicts: true
-    searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    feedPublish: 'english_learning_nuget'
+stages:
+  - stage: Publish
+    displayName: Publish Artifacts
+    jobs:
+      - job: PublishArtifacts
+        displayName: Publish Artifacts
+        pool:
+          vmImage: 'Ubuntu-16.04'
+        variables:
+          buildConfiguration: 'Release'
+          Major: '1'
+          Minor: '1'
+        steps:
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: pack
+            projects: '**/*.csproj'
+            versioningScheme: byPrereleaseNumber
+            verbosityPack: minimal
+            packagesDirectory: '$(Build.ArtifactStagingDirectory)'
+            requestedMajorVersion: 1
+            requestedMinorVersion: 1
+            requestedPatchVersion: 0
+        - task: NuGetCommand@2
+          inputs:
+            command: push
+            allowPackageConflicts: true
+            searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+            feedPublish: 'english_learning_nuget'
