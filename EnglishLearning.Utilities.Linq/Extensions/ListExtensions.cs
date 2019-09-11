@@ -21,8 +21,6 @@ namespace EnglishLearning.Utilities.Linq.Extensions
         public static IReadOnlyList<KeyValuePair<int, int>> SplintOnRangesIndexes<T>(this List<T> list, int sizeOfRanges)
         {
             var result = new List<KeyValuePair<int, int>>();
-            
-            var sizeOfList = list.Count;
 
             int index = 0;
             while (index < list.Count)

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling
 {
-    internal class DeadLetterMessagesProducer : IDeadLetterMessagesProducer, IDisposable
+    internal sealed class DeadLetterMessagesProducer : IDeadLetterMessagesProducer, IDisposable
     {
         private readonly IProducer<Null, string> _producer;
         private readonly KafkaSettings _configuration;
