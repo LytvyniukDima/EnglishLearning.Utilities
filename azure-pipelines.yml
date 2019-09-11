@@ -7,11 +7,41 @@ trigger:
 - master
 
 stages:
+  - stage: Build
+    jobs:
+      - job: BuildAndAnalyze
+        displayName: Build And Analyze
+        pool:
+          vmImage: 'windows-latest'
+        variables:
+          buildConfiguration: 'Release'
+        steps:
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'restore'
+              feedsToUse: 'select'
+          - task: SonarQubePrepare@4
+            inputs:
+              SonarQube: 'sonarqube'
+              scannerMode: 'MSBuild'
+              projectKey: 'EnglishLearning.Utilities'
+              projectName: 'EnglishLearning.Utilities'
+              extraProperties: |
+                sonar.sources="$(System.DefaultWorkingDirectory)/_LytvyniukDima_EnglishLearning.Utilities/."
+                sonar.projectbasedir="$(System.DefaultWorkingDirectory)/_LytvyniukDima_EnglishLearning.Utilities/."
+          - task: MSBuild@1
+            inputs:
+              solution: '**/*.sln'
+          - task: SonarQubeAnalyze@4
+          - task: SonarQubePublish@4
+            inputs:
+              pollingTimeoutSec: '300'
+
   - stage: Publish
     displayName: Publish Artifacts
     jobs:
-      - job: PublishArtifacts
-        displayName: Publish Artifacts
+      - job: PackAndPublish
+        displayName: Pack And Publish
         pool:
           vmImage: 'Ubuntu-16.04'
         variables:
