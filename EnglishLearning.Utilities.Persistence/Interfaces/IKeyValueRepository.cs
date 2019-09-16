@@ -8,7 +8,9 @@
         void SetByteValue(string key, byte[] value);
         byte[] GetByteValue(string key);
         
-        void SetObjectValue<T>(string key, T value);
-        T GetObjectValue<T>(string key);
+        void SetObjectValue<T>(string key, T value) 
+            where T : class;
+        T GetObjectValue<T>(string key)
+            where T : class;
     }
 }

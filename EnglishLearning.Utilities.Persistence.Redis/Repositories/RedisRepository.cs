@@ -1,4 +1,5 @@
-﻿using EnglishLearning.Utilities.Persistence.Interfaces;
+﻿using System;
+using EnglishLearning.Utilities.Persistence.Interfaces;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
@@ -29,6 +30,11 @@ namespace EnglishLearning.Utilities.Persistence.Redis.Repositories
         
         public void SetByteValue(string key, byte[] value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+            
             _database.StringSet(key, value);
         }
 
@@ -39,17 +45,28 @@ namespace EnglishLearning.Utilities.Persistence.Redis.Repositories
             return value;
         }
         
-        public void SetObjectValue<T>(string key, T value)
+        public void SetObjectValue<T>(string key, T value) 
+            where T : class
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+        
             var serializedObject = JsonConvert.SerializeObject(value);
             _database.StringSet(key, serializedObject);
         }
 
-        public T GetObjectValue<T>(string key)
+        public T GetObjectValue<T>(string key) 
+            where T : class
         {
             string value = _database.StringGet(key);
-            var serializedObject = JsonConvert.DeserializeObject<T>(value);
+            if (value == null)
+            {
+                return null;
+            }
 
+            var serializedObject = JsonConvert.DeserializeObject<T>(value);
             return serializedObject;
         }
     }
