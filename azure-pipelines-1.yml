@@ -43,4 +43,4 @@ stages:
             allowPackageConflicts: true
             searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
             nuGetFeedType: 'internal'
-            publishVstsFeed: 'NewEnglishLearning/EnglishLearning'
+            publishVstsFeed: 'EnglishLearning/EnglishLearning'
