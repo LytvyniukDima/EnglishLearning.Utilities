@@ -39,10 +39,12 @@ stages:
             requestedPatchVersion: 0
         - task: NuGetAuthenticate@0
           displayName: 'NuGet Authenticate'
+          inputs:
+            forceReinstallCredentialProvider: true
         - task: NuGetCommand@2
           inputs:
             command: push
             allowPackageConflicts: true
-            searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+            packagesToPush: '$(Build.ArtifactStagingDirectory)/**/.nupkg'
             nuGetFeedType: 'internal'
             publishVstsFeed: 'EnglishLearning/EnglishLearning'
