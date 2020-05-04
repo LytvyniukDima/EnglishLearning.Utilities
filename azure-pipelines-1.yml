@@ -45,6 +45,6 @@ stages:
           inputs:
             command: push
             allowPackageConflicts: true
-            packagesToPush: '$(Build.ArtifactStagingDirectory)/**/.nupkg'
+            packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg'
             nuGetFeedType: 'internal'
             publishVstsFeed: 'EnglishLearning/EnglishLearning'
