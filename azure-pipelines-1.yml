@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- none
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -43,4 +43,4 @@ stages:
             allowPackageConflicts: true
             searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
             nuGetFeedType: 'internal'
-            publishVstsFeed: '962ac791-9587-45ae-9dc6-5841bad93f60'
+            publishVstsFeed: 'NewEnglishLearning/EnglishLearning'
