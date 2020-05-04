@@ -42,4 +42,5 @@ stages:
             command: push
             allowPackageConflicts: true
             searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-            feedPublish: 'EnglishLearning'
+            nuGetFeedType: 'internal'
+            publishVstsFeed: '962ac791-9587-45ae-9dc6-5841bad93f60/37c83b0a-3e90-45bf-9d69-7edacc41b9aa'
