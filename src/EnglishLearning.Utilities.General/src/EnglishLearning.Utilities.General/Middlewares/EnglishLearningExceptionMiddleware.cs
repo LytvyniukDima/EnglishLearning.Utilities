@@ -26,7 +26,7 @@ namespace EnglishLearning.Utilities.General.Middlewares
             {
                 if (ex is AuthenticationException || ex is SecurityTokenException)
                 {
-                    Log.Error($"Authorization exception: {ex}");      
+                    Log.Error($"Authorization exception: {ex}");
                     
                     context.Response.StatusCode = 401;
                     context.Response.ContentType = "@text/plain";
