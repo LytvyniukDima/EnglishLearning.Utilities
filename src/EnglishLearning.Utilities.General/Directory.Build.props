@@ -3,6 +3,6 @@
         <CodeAnalysisRuleSet>..\..\..\..\CodeAnalysisRuleSet.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="all" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.164" PrivateAssets="all" />
     </ItemGroup>
 </Project>
