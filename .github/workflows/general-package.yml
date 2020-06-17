@@ -21,14 +21,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '3.1.x'
-        source-url: https://nuget.pkg.github.com/dimaLytvyniuk/index.json
+        source-url: https://nuget.pkg.github.com/LytvyniukDima/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Build
       run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
     - name: Pack
-      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH --version-suffix $GITHUB_RUN_ID
+      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
       working-directory: ${{env.working-directory}}
     - name: Publish
       run: dotnet nuget push ./nuget/*.nupkg
