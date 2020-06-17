@@ -3,7 +3,8 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-    paths: [ 'src/EnglishLearning.Utilities.General/**' ]
+    paths:
+      - 'src/EnglishLearning.Utilities.General/**'
 
 jobs:
   build:
