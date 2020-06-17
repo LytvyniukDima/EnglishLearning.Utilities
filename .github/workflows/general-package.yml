@@ -11,16 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: './src/EnglishLearning.Utilities.General'
+      REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+      MAJOR: 1
+      MINOR: 0
+      PATCH: 0
 
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.101
-    - name: Install dependencies
-      run: dotnet restore
-      working-directory: ${{env.working-directory}}
+        dotnet-version: '3.1.x'
+        source-url: https://nuget.pkg.github.com/dimaLytvyniuk/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
+    - name: Pack
+      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$BUILD_ID
+      working-directory: ${{env.working-directory}}
+    - name: Publish
+      run: dotnet nuget push ./nuget/*.nupkg
+      
