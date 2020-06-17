@@ -31,5 +31,5 @@ jobs:
       run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
       working-directory: ${{env.working-directory}}
     - name: Publish
-      run: dotnet nuget push ./nuget/*.nupkg
+      run: dotnet nuget push -s "https://nuget.pkg.github.com/LytvyniukDima/index.json" -k ${{env.NUGET_AUTH_TOKEN}} ./nuget/*.nupkg
       working-directory: ${{env.working-directory}}
