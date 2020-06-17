@@ -28,7 +28,7 @@ jobs:
       run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
     - name: Pack
-      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH --version-suffix $BUILD_ID
+      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH --version-suffix $GITHUB_RUN_ID
       working-directory: ${{env.working-directory}}
     - name: Publish
       run: dotnet nuget push ./nuget/*.nupkg
