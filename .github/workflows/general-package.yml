@@ -32,3 +32,4 @@ jobs:
       working-directory: ${{env.working-directory}}
     - name: Publish
       run: dotnet nuget push ./nuget/*.nupkg
+      working-directory: ${{env.working-directory}}
