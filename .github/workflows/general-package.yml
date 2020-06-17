@@ -12,7 +12,7 @@ jobs:
     env:
       working-directory: './src/EnglishLearning.Utilities.General'
       MAJOR: 1
-      MINOR: 0
+      MINOR: 1
       PATCH: 0
 
     steps:
@@ -28,8 +28,7 @@ jobs:
       run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
     - name: Pack
-      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$BUILD_ID
+      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH --version-suffix $BUILD_ID
       working-directory: ${{env.working-directory}}
     - name: Publish
       run: dotnet nuget push ./nuget/*.nupkg
-      
