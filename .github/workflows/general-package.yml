@@ -6,7 +6,7 @@ on:
     paths: [ 'src/EnglishLearning.Utilities.General/*' ]
 
 jobs:
-  build:
+  general-package:
 
     runs-on: ubuntu-latest
     env:
