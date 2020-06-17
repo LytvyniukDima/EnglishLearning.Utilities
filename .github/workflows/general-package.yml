@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: './src/EnglishLearning.Utilities.General'
+      REGISTRY_TOKEN: ${{secrets.REGISTRY_TOKEN}}
       MAJOR: 1
       MINOR: 1
       PATCH: 0
@@ -31,5 +32,5 @@ jobs:
       run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
       working-directory: ${{env.working-directory}}
     - name: Publish
-      run: dotnet nuget push -s "https://nuget.pkg.github.com/LytvyniukDima/index.json" -k ${{env.NUGET_AUTH_TOKEN}} ./nuget/*.nupkg
+      run: dotnet nuget push -s "https://nuget.pkg.github.com/LytvyniukDima/index.json" -k ${{env.REGISTRY_TOKEN}} ./nuget/*.nupkg
       working-directory: ${{env.working-directory}}
