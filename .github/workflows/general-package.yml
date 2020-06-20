@@ -24,10 +24,10 @@ jobs:
       with:
         dotnet-version: '3.1.x'
         source-url: https://nuget.pkg.github.com/LytvyniukDima/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         SONAR_SERVER_URL: ${{ secrets.SONAR_SERVER_URL }}
         SONAR_SERVER_TOKEN: ${{ secrets.SONAR_SERVER_TOKEN }}
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: SonarInit
       run: |
         dotnet tool restore
