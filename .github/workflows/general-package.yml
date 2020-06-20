@@ -35,3 +35,8 @@ jobs:
     - name: Publish
       run: dotnet nuget push ./nuget/*.nupkg
       working-directory: ${{env.working-directory}}
+    - name: Java
+      run: javac -version
+    - name: Dotnet tool
+      run: dotnet tool restore
+      working-directory: ${{env.working-directory}}
