@@ -26,12 +26,13 @@ jobs:
         source-url: https://nuget.pkg.github.com/LytvyniukDima/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        SONAR_SERVER_URL: ${{secrets.SONAR_SERVER_URL}}
-        SONAR_SERVER_TOKEN: ${{secrets.SONAR_SERVER_TOKEN}}
+        SONAR_SERVER_URL: ${{ secrets.SONAR_SERVER_URL }}
+        SONAR_SERVER_TOKEN: ${{ secrets.SONAR_SERVER_TOKEN }}
     - name: SonarInit
       run: |
         dotnet tool restore
         echo "$PROJECT_NAME"
+        echo "$SONAR_SERVER_URL"
         dotnet sonarscanner begin /k:"$PROJECT_NAME" /d:sonar.host.url="$SONAR_SERVER_URL" /d:sonar.login="$SONAR_SERVER_TOKEN"
       working-directory: ${{env.working-directory}}
     - name: Build
