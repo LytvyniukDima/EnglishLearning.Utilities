@@ -31,13 +31,13 @@ jobs:
     - name: SonarInit
       run: |
         dotnet tool restore
-        dotnet sonarscanner begin /k:"$env:project-name" /d:sonar.host.url="$env:SONAR_SERVER_URL" /d:sonar.login="$env:SONAR_SERVER_TOKEN"
+        dotnet sonarscanner begin /k:"$env:project-name" /d:sonar.host.url=${{env.SONAR_SERVER_URL}} /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
       working-directory: ${{env.working-directory}}
     - name: Build
       run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
     - name: SonnarEnd
-      run: dotnet sonarscanner end /d:sonar.login="$env:SONAR_SERVER_TOKEN"
+      run: dotnet sonarscanner end /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
       working-directory: ${{env.working-directory}}
     - name: Pack
       run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
