@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: './src/EnglishLearning.Utilities.General'
-      project-name: 'EnglishLearning.Utilities.General'
+      PROJECT_NAME: 'EnglishLearning.Utilities.General'
       MAJOR: 1
       MINOR: 1
       PATCH: 0
@@ -26,12 +26,12 @@ jobs:
         source-url: https://nuget.pkg.github.com/LytvyniukDima/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        SONAR_SERVER_URL: ${{ secrets.SONAR_SERVER_URL }}
-        SONAR_SERVER_TOKEN: ${{ secrets.SONAR_SERVER_TOKEN }}
+        SONAR_SERVER_URL: ${{secrets.SONAR_SERVER_URL}}
+        SONAR_SERVER_TOKEN: ${{secrets.SONAR_SERVER_TOKEN}}
     - name: SonarInit
       run: |
         dotnet tool restore
-        dotnet sonarscanner begin /k:"$env:project-name" /d:sonar.host.url=${{env.SONAR_SERVER_URL}} /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
+        dotnet sonarscanner begin /k:"$PROJECT_NAME" /d:sonar.host.url="$SONAR_SERVER_URL" /d:sonar.login="$SONAR_SERVER_TOKEN"
       working-directory: ${{env.working-directory}}
     - name: Build
       run: dotnet build -c Release
