@@ -1,0 +1,47 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'src/EnglishLearning.Utilities.Configurations/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      working-directory: './src/EnglishLearning.Utilities.Configurations'
+      PROJECT_NAME: 'EnglishLearning.Utilities.Configurations'
+      MAJOR: 1
+      MINOR: 1
+      PATCH: 0
+      SONAR_SERVER_URL: ${{ secrets.SONAR_SERVER_URL }}
+      SONAR_SERVER_TOKEN: ${{ secrets.SONAR_SERVER_TOKEN }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+        source-url: https://nuget.pkg.github.com/LytvyniukDima/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: SonarInit
+      run: |
+        dotnet tool restore
+        dotnet sonarscanner begin /k:"$PROJECT_NAME" /d:sonar.host.url="$SONAR_SERVER_URL" /d:sonar.login="$SONAR_SERVER_TOKEN"
+      working-directory: ${{env.working-directory}}
+    - name: Build
+      run: dotnet build -c Release
+      working-directory: ${{env.working-directory}}
+    - name: SonnarEnd
+      run: dotnet sonarscanner end /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
+      working-directory: ${{env.working-directory}}
+    - name: Pack
+      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
+      working-directory: ${{env.working-directory}}
+    - name: Publish
+      run: dotnet nuget push ./nuget/*.nupkg
+      working-directory: ${{env.working-directory}}

@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Configurations", "src\EnglishLearning.Utilities.Configurations\EnglishLearning.Utilities.Configurations.csproj", "{9436565C-16B1-42CE-90A9-3A85192ACAD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9436565C-16B1-42CE-90A9-3A85192ACAD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9436565C-16B1-42CE-90A9-3A85192ACAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9436565C-16B1-42CE-90A9-3A85192ACAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9436565C-16B1-42CE-90A9-3A85192ACAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
