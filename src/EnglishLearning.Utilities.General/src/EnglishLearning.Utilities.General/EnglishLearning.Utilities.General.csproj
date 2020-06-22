@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <PackageDescription>General Utilities for EnglishLearning</PackageDescription>
+        <PackageDescription>General Utilities</PackageDescription>
         <RepositoryUrl>https://github.com/LytvyniukDima/EnglishLearning.Utilities</RepositoryUrl>
     </PropertyGroup>
 
