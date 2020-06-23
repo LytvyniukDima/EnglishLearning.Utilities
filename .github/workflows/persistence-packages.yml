@@ -41,8 +41,8 @@ jobs:
       run: dotnet sonarscanner end /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
       working-directory: ${{env.working-directory}}
     - name: Pack
-      run: dotnet pack -c Release -o ./nuget -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
+      run: dotnet pack -c Release -o . -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
       working-directory: ${{env.working-directory}}
     - name: Publish
-      run: dotnet nuget push ./nuget/*.nupkg
+      run: dotnet nuget push '*.nupkg'
       working-directory: ${{env.working-directory}}
