@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Persistence.Abstractions", "src\EnglishLearning.Utilities.Persistence.Abstractions\EnglishLearning.Utilities.Persistence.Abstractions.csproj", "{22E221D0-C489-49CE-B8D1-D31D5673C13F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Persistence.Mongo", "src\EnglishLearning.Utilities.Persistence.Mongo\EnglishLearning.Utilities.Persistence.Mongo.csproj", "{D6D07D80-2246-4FA7-B6BC-F2673A3F9904}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Persistence.Redis", "src\EnglishLearning.Utilities.Persistence.Redis\EnglishLearning.Utilities.Persistence.Redis.csproj", "{3463F0A8-AF93-4DEB-9DBA-5A5186B1D443}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22E221D0-C489-49CE-B8D1-D31D5673C13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E221D0-C489-49CE-B8D1-D31D5673C13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E221D0-C489-49CE-B8D1-D31D5673C13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E221D0-C489-49CE-B8D1-D31D5673C13F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D07D80-2246-4FA7-B6BC-F2673A3F9904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D07D80-2246-4FA7-B6BC-F2673A3F9904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D07D80-2246-4FA7-B6BC-F2673A3F9904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D07D80-2246-4FA7-B6BC-F2673A3F9904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3463F0A8-AF93-4DEB-9DBA-5A5186B1D443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3463F0A8-AF93-4DEB-9DBA-5A5186B1D443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3463F0A8-AF93-4DEB-9DBA-5A5186B1D443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3463F0A8-AF93-4DEB-9DBA-5A5186B1D443}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

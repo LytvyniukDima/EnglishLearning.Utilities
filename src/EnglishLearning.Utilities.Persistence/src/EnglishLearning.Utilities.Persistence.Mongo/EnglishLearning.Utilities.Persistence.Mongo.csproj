@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageDescription>Persistence Mongo Utilities</PackageDescription>
+        <RepositoryUrl>https://github.com/LytvyniukDima/EnglishLearning.Utilities</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EnglishLearning.Utilities.Persistence.Abstractions\EnglishLearning.Utilities.Persistence.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+      <PackageReference Include="EnglishLearning.Utilities.Configurations" Version="1.1.0-144050589" />
+    </ItemGroup>
+
+</Project>

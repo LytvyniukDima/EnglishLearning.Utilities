@@ -1,18 +1,18 @@
-name: Configurations package
+name: Persistence packages
 
 on:
   push:
     branches: [ master ]
     paths:
-      - 'src/EnglishLearning.Utilities.Configurations/**'
+      - 'src/EnglishLearning.Utilities.Persistence/**'
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
     env:
-      working-directory: './src/EnglishLearning.Utilities.Configurations'
-      PROJECT_NAME: 'EnglishLearning.Utilities.Configurations'
+      working-directory: './src/EnglishLearning.Utilities.Persistence'
+      PROJECT_NAME: 'EnglishLearning.Utilities.Persistence'
       MAJOR: 1
       MINOR: 1
       PATCH: 0
