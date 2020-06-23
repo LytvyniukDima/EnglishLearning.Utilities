@@ -18,6 +18,7 @@ jobs:
       PATCH: 0
       SONAR_SERVER_URL: ${{ secrets.SONAR_SERVER_URL }}
       SONAR_SERVER_TOKEN: ${{ secrets.SONAR_SERVER_TOKEN }}
+      PACKAGES_READ_TOKEN: ${{ secrets.PACKAGES_READ_TOKEN }}
 
     steps:
     - uses: actions/checkout@v2
