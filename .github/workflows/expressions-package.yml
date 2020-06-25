@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'src/EnglishLearning.Utilities.Expressions/**'
+      - '.github/workflows/expressions-package.yml'
 
 jobs:
   build:

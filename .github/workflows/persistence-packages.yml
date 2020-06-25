@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'src/EnglishLearning.Utilities.Persistence/**'
+      - '.github/workflows/persistence-package.yml'
 
 jobs:
   build:

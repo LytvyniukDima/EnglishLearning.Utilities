@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'src/EnglishLearning.Utilities.General/**'
+      - '.github/workflows/general-package.yml'
 
 jobs:
   build:

@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'src/EnglishLearning.Utilities.Configurations/**'
+      - '.github/workflows/configurations-package.yml'
 
 jobs:
   build:
