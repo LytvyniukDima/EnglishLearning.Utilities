@@ -34,11 +34,13 @@ jobs:
       run: |
         dotnet tool restore
         dotnet sonarscanner begin /k:"$PROJECT_NAME" /d:sonar.host.url="$SONAR_SERVER_URL" /d:sonar.login="$SONAR_SERVER_TOKEN"
+      working-directory: ${{env.working-directory}}
     - name: Build
       run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
     - name: SonnarEnd
       run: dotnet sonarscanner end /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
+      working-directory: ${{env.working-directory}}
     - name: Pack
       run: dotnet pack -c Release -o . -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
       working-directory: ${{env.working-directory}}
