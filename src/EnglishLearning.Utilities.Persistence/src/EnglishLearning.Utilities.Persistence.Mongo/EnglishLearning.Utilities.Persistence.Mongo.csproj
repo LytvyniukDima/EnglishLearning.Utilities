@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
-      <PackageReference Include="EnglishLearning.Utilities.Configurations" Version="1.1.0-144050589" />
+      <PackageReference Include="EnglishLearning.Utilities.Configurations" Version="1.1.0-147852483" />
     </ItemGroup>
 
 </Project>
