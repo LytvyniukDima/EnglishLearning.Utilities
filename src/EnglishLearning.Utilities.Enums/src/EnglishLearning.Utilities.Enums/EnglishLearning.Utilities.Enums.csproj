@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageDescription>Enums Utilities</PackageDescription>
+        <RepositoryUrl>https://github.com/LytvyniukDima/EnglishLearning.Utilities</RepositoryUrl>
+    </PropertyGroup>
+
+</Project>
