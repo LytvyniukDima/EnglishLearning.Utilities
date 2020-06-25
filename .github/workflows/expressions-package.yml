@@ -1,4 +1,4 @@
-name: Configurations package
+name: Expressions package
 
 on:
   push:
