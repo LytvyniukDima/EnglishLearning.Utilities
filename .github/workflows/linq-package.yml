@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'src/EnglishLearning.Utilities.Linq/**'
+      - '.github/workflows/linq-package.yml'
 
 jobs:
   build:
@@ -38,7 +39,6 @@ jobs:
       working-directory: ${{env.working-directory}}
     - name: SonnarEnd
       run: dotnet sonarscanner end /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
-      working-directory: ${{env.working-directory}}
     - name: Pack
       run: dotnet pack -c Release -o . -p:PackageVersion=$MAJOR.$MINOR.$PATCH-$GITHUB_RUN_ID
       working-directory: ${{env.working-directory}}
