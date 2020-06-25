@@ -33,7 +33,6 @@ jobs:
       run: |
         dotnet tool restore
         dotnet sonarscanner begin /k:"$PROJECT_NAME" /d:sonar.host.url="$SONAR_SERVER_URL" /d:sonar.login="$SONAR_SERVER_TOKEN"
-      working-directory: ${{env.working-directory}}
     - name: Build
       run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
