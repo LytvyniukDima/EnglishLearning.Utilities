@@ -71,7 +71,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
                             
                             Log.Information($"Consuming message from {cr.Topic}. Partition {cr.Partition.Value}. ConsumerId {_consumerId}");
                             var consumer = _consumerFactory.GetMessageConsumer(cr.Topic);
-                            var consumerResult = await consumer.ConsumeAsync(cr.Value);
+                            var consumerResult = await consumer.ConsumeAsync(cr.Message.Value);
                             if (!consumerResult.IsSuccessful)
                             {
                                 await _deadLetterMessagesProducer.Produce(cr.Topic, consumerResult.ErrorMessage);

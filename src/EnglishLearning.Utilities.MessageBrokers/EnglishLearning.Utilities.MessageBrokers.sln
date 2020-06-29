@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.MessageBrokers.Kafka", "src\EnglishLearning.Utilities.MessageBrokers.Kafka\EnglishLearning.Utilities.MessageBrokers.Kafka.csproj", "{C57D300A-A2EA-45C4-95B9-F6180943D044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.MessageBrokers.Contracts", "src\EnglishLearning.Utilities.MessageBrokers.Contracts\EnglishLearning.Utilities.MessageBrokers.Contracts.csproj", "{1F80624D-035F-436E-93FE-18C11DD62EB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C57D300A-A2EA-45C4-95B9-F6180943D044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57D300A-A2EA-45C4-95B9-F6180943D044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57D300A-A2EA-45C4-95B9-F6180943D044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57D300A-A2EA-45C4-95B9-F6180943D044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F80624D-035F-436E-93FE-18C11DD62EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F80624D-035F-436E-93FE-18C11DD62EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F80624D-035F-436E-93FE-18C11DD62EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F80624D-035F-436E-93FE-18C11DD62EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
