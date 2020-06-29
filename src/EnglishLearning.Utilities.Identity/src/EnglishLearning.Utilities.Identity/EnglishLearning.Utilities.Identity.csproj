@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageDescription>Identity Utilities</PackageDescription>
+        <RepositoryUrl>https://github.com/LytvyniukDima/EnglishLearning.Utilities</RepositoryUrl>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\EnglishLearning.Utilities.Identity.Abstractions\EnglishLearning.Utilities.Identity.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.0" />
+        <PackageReference Include="EnglishLearning.Utilities.Persistence.Abstractions" Version="1.1.0-147866324" />
+    </ItemGroup>
+
+</Project>

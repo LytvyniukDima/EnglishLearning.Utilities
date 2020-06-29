@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageDescription>Identity Abstractions Utilities</PackageDescription>
+        <RepositoryUrl>https://github.com/LytvyniukDima/EnglishLearning.Utilities</RepositoryUrl>
+    </PropertyGroup>
+</Project>
