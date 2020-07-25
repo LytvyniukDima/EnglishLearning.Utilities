@@ -38,6 +38,8 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            await Task.Yield();
+            
             var conf = new ConsumerConfig
             { 
                 GroupId = _configuration.GroupId,
@@ -54,12 +56,6 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             using (var c = new ConsumerBuilder<Ignore, byte[]>(conf).Build())
             {
                 c.Subscribe(_subscribedTopics);
-                CancellationTokenSource cts = new CancellationTokenSource();
-                Console.CancelKeyPress += (_, e) =>
-                {
-                    e.Cancel = true; // prevent the process from terminating.
-                    cts.Cancel();
-                };
 
                 try
                 {
@@ -67,7 +63,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
                     {
                         try
                         {
-                            var cr = c.Consume(cts.Token);
+                            var cr = c.Consume(stoppingToken);
                             
                             Log.Information($"Consuming message from {cr.Topic}. Partition {cr.Partition.Value}. ConsumerId {_consumerId}");
                             var consumer = _consumerFactory.GetMessageConsumer(cr.Topic);

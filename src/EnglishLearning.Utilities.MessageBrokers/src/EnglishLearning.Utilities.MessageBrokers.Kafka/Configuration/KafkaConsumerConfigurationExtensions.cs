@@ -40,7 +40,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
             
             for (var i = 0; i < optionsBuilder.PartitionCount; i++)
             {
-                services.AddSingleton<IHostedService>(sp =>
+                services.AddHostedService(sp =>
                 {
                     var kafkaConfiguration = sp.GetRequiredService<IOptions<KafkaSettings>>().Value;
                     var consumerFactory = new KafkaMessageConsumerFactory(sp, optionsBuilder.TopicConsumerTypes);

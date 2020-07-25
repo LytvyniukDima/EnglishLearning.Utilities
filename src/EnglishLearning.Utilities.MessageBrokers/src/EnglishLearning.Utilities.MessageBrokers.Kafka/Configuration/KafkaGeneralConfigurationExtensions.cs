@@ -33,5 +33,14 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
             
             return services;
         }
+
+        public static IServiceCollection AddMessageHandler<TEvent, TMessageHandler>(this IServiceCollection services)
+            where TMessageHandler : class, IKafkaMessageHandler<TEvent>
+        {
+            services.AddTransient<IKafkaMessageHandler<TEvent>, TMessageHandler>();
+            services.AddTransient<TMessageHandler>();
+            
+            return services;
+        }
     }
 }

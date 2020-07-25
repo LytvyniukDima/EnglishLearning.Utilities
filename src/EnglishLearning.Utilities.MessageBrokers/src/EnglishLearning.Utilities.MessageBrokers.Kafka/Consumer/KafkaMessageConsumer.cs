@@ -15,13 +15,11 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
         private const int RetryTimeout = 500;
         
         private readonly IServiceProvider _serviceProvider;
-        private readonly IReadOnlyList<IKafkaMessageHandler<T>> _handlers;
         private readonly IMessageSerializer<T> _serializer;
         
-        public KafkaMessageConsumer(IServiceProvider serviceProvider, IEnumerable<IKafkaMessageHandler<T>> handlers, IMessageSerializer<T> serializer)
+        public KafkaMessageConsumer(IServiceProvider serviceProvider, IMessageSerializer<T> serializer)
         {
             _serviceProvider = serviceProvider;
-            _handlers = handlers.ToList();
             _serializer = serializer;
         }
         
@@ -30,13 +28,24 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             T message = _serializer.Deserialize(data);
             
             var exception = default(Exception);
-            foreach (var handler in _handlers)
+            
+            using var scope = _serviceProvider.CreateScope();
+            var handlers = scope.ServiceProvider
+                .GetServices<IKafkaMessageHandler<T>>()
+                .ToList();
+
+            if (!handlers.Any())
+            {
+                exception = new Exception($"Not found handler for {typeof(T)}");
+            }
+            
+            foreach (var handler in handlers)
             {
                 for (int i = 0; i < RetryCount; i++)
                 {
                     try
                     {
-                        await OnMessageAsync(handler, message);
+                        await OnMessageAsync(scope.ServiceProvider, handler, message);
                         return KafkaConsumerResultModel.GetSuccessfulResultModel();
                     }
                     catch (Exception ex)
@@ -51,7 +60,10 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer
             return KafkaConsumerResultModel.GetFailedResultModel(message, exception);
         }
         
-        private async Task OnMessageAsync<THandler>(THandler handler, T message) 
+        private async Task OnMessageAsync<THandler>(
+            IServiceProvider serviceProvider,
+            THandler handler,
+            T message) 
             where THandler : IKafkaMessageHandler<T>
         {
             using (var scope = _serviceProvider.CreateScope())
