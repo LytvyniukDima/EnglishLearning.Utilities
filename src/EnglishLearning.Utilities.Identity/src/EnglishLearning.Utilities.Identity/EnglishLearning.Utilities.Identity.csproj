@@ -15,8 +15,8 @@
 
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.0" />
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.0" />
+        <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
         <PackageReference Include="EnglishLearning.Utilities.Persistence.Abstractions" Version="1.2.0-151158169" />
     </ItemGroup>
 
