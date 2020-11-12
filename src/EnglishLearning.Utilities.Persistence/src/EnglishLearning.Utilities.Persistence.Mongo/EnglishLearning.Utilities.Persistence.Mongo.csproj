@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <PackageReference Include="MongoDB.Driver" Version="2.11.4" />
-      <PackageReference Include="EnglishLearning.Utilities.Configurations" Version="1.2.0-151155564" />
+      <PackageReference Include="EnglishLearning.Utilities.Configurations" Version="1.3.0-359873764" />
     </ItemGroup>
 
 </Project>
