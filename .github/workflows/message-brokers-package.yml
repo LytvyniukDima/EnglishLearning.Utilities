@@ -31,6 +31,7 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: SonarInit
+      if: ${{ false }}
       run: |
         dotnet tool restore
         dotnet sonarscanner begin /k:"$PROJECT_NAME" /d:sonar.host.url="$SONAR_SERVER_URL" /d:sonar.login="$SONAR_SERVER_TOKEN"
@@ -39,6 +40,7 @@ jobs:
       run: dotnet build -c Release
       working-directory: ${{env.working-directory}}
     - name: SonnarEnd
+      if: ${{ false }}
       run: dotnet sonarscanner end /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
       working-directory: ${{env.working-directory}}
     - name: Pack
