@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer;
+using EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers;
+using EnglishLearning.Utilities.MessageBrokers.Kafka.Serializers.Abstraction;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -46,6 +48,16 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
             
             _services.TryAddTransient<IKafkaMessageConsumer, KafkaMessageConsumer<T>>();
             _services.TryAddTransient<KafkaMessageConsumer<T>>();
+        }
+        
+        public void UseProtoBufSerializer<T>()
+        {
+            _services.AddSingleton<IMessageSerializer<T>, ProtobufSerializer<T>>();
+        }
+
+        public void UseStringSerializer()
+        {
+            _services.TryAddSingleton<IMessageSerializer<string>, StringSerializer>();
         }
     }
 }

@@ -23,15 +23,5 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
 
             _services.AddKafkaConsumer(optionsBuilderAction);
         }
-
-        public void UseProtoBufSerializer()
-        {
-            _services.AddSingleton(typeof(IMessageSerializer<>), typeof(ProtobufSerializer<>));
-        }
-
-        public void UseStringSerializer()
-        {
-            _services.AddSingleton(typeof(IMessageSerializer<>), typeof(StringSerializer));
-        }
     }
 }

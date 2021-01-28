@@ -10,5 +10,8 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
         
         void AddTopic<T>();
         void AddTopic<T>(string topicName);
+        
+        void UseProtoBufSerializer<T>();
+        void UseStringSerializer();
     }
 }

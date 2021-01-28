@@ -3,7 +3,6 @@ using System.Linq;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Consumer;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
