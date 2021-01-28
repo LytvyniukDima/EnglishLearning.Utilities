@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling
 {
@@ -16,7 +16,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling
 
         public static KafkaErrorMessage CreateErrorMessage<T>(T message, Exception ex)
         {
-            var serializedMessage = JsonConvert.SerializeObject(message);
+            var serializedMessage = JsonSerializer.Serialize(message);
             var serializedException = ex.ToString();
             
             return new KafkaErrorMessage(serializedMessage, serializedException);

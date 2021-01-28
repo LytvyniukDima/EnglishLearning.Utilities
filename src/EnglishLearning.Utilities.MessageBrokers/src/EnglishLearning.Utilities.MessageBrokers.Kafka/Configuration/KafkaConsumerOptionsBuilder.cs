@@ -59,5 +59,10 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
         {
             _services.TryAddSingleton<IMessageSerializer<string>, StringSerializer>();
         }
+
+        public void UseJsonSerializer<T>()
+        {
+            _services.AddSingleton<IMessageSerializer<T>, KafkaJsonSerializer<T>>();
+        }
     }
 }

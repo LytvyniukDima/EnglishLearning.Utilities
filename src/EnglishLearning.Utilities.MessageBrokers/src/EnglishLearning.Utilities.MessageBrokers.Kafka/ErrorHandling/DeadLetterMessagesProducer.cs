@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Confluent.Kafka;
 using EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 
 namespace EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling
 {
@@ -25,7 +25,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.ErrorHandling
 
         public Task<DeliveryResult<Null, string>> Produce(string topicName, KafkaErrorMessage message)
         {
-            var serializedObject = JsonConvert.SerializeObject(message);
+            var serializedObject = JsonSerializer.Serialize(message);
             return _producer.ProduceAsync($"{topicName}_error", new Message<Null, string>() { Value = serializedObject });
         }
 
