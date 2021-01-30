@@ -29,6 +29,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
             services.AddSingleton<IDeadLetterMessagesProducer, DeadLetterMessagesProducer>();
             
             var options = new KafkaGeneralOptionsBuilder(services);
+            options.UseJsonAsDefaultSerializer();
             optionsBuilderAction(options);
             
             return services;

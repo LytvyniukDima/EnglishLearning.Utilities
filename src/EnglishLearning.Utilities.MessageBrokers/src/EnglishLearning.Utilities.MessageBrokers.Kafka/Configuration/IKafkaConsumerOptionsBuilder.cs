@@ -13,5 +13,6 @@ namespace EnglishLearning.Utilities.MessageBrokers.Kafka.Configuration
         
         void UseProtoBufSerializer<T>();
         void UseStringSerializer();
+        void UseJsonSerializer<T>();
     }
 }
