@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="protobuf-net" Version="3.0.52" />
+      <PackageReference Include="protobuf-net" Version="3.0.73" />
+      <PackageReference Include="System.Text.Json" Version="5.0.1" />
     </ItemGroup>
 </Project>
