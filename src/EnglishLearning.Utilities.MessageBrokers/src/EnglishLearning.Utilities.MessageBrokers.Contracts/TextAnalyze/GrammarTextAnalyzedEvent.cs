@@ -13,6 +13,6 @@ namespace EnglishLearning.Utilities.MessageBrokers.Contracts.TextAnalyze
         public Guid AnalyzeId { get; set; }
         
         [ProtoMember(2)]
-        public IReadOnlyCollection<ParsedSentContract> Sents { get; set; }
+        public List<ParsedSentContract> Sents { get; set; }
     }
 }
