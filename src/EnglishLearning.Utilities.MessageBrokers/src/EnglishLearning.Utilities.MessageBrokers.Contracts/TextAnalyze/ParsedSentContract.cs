@@ -8,6 +8,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Contracts.TextAnalyze
     public class ParsedSentContract
     {
         [ProtoMember(1)]
+        [JsonPropertyName("sent")]
         public string Sent { get; set; }
         
         [ProtoMember(2)]
@@ -15,6 +16,7 @@ namespace EnglishLearning.Utilities.MessageBrokers.Contracts.TextAnalyze
         public string SentType { get; set; }
         
         [ProtoMember(3)]
+        [JsonPropertyName("tokens")]
         public IReadOnlyCollection<SentTokenContract> Tokens { get; set; }
     }
 }
