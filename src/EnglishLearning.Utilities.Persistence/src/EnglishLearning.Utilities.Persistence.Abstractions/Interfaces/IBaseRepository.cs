@@ -12,6 +12,7 @@ namespace EnglishLearning.Utilities.Persistence.Interfaces
         Task<T> FindAsync(Expression<Func<T, bool>> filter);
         Task<IReadOnlyList<T>> FindAllAsync(Expression<Func<T, bool>> filter);
         Task AddAsync(T item);
+        Task AddManyAsync(IReadOnlyList<T> items);
         Task<bool> DeleteAsync(Expression<Func<T, bool>> filter);
         Task<bool> UpdateAsync(T item);
         Task<bool> DeleteAllAsync();

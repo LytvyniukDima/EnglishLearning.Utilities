@@ -35,9 +35,14 @@ namespace EnglishLearning.Utilities.Persistence.Mongo.Repositories
             return await _collection.Find(filter).ToListAsync();
         }
 
-        public virtual async Task AddAsync(T item)
+        public virtual Task AddAsync(T item)
         {
-            await _collection.InsertOneAsync(item);
+            return _collection.InsertOneAsync(item);
+        }
+
+        public virtual Task AddManyAsync(IReadOnlyList<T> items)
+        {
+            return _collection.InsertManyAsync(items);
         }
 
         public virtual async Task<bool> DeleteAsync(Expression<Func<T, bool>> filter)
