@@ -16,6 +16,7 @@ namespace EnglishLearning.Utilities.Identity.Configuration
             services.AddSingleton<IJwtSecretKeyProvider, JwtSecretKeyProvider>();
             services.AddSingleton<IAuthInfoProvider, AuthInfoProvider>();
 
+            services.AddHttpContextAccessor();
             services.AddTransient<JwtInfoHeaderHandler>();
             
             return services;
