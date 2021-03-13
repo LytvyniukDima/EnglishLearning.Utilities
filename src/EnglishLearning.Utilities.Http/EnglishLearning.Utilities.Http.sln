@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Http.Extensions", "src\EnglishLearning.Utilities.Http.Extensions\EnglishLearning.Utilities.Http.Extensions.csproj", "{653ACC3F-FCA7-4F3B-9C5D-2FF05EC7432C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{653ACC3F-FCA7-4F3B-9C5D-2FF05EC7432C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{653ACC3F-FCA7-4F3B-9C5D-2FF05EC7432C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{653ACC3F-FCA7-4F3B-9C5D-2FF05EC7432C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{653ACC3F-FCA7-4F3B-9C5D-2FF05EC7432C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
