@@ -1,4 +1,5 @@
 ﻿using EnglishLearning.Utilities.Identity.Abstractions;
+using EnglishLearning.Utilities.Identity.DelegationHandlers;
 using EnglishLearning.Utilities.Identity.Filters;
 using EnglishLearning.Utilities.Identity.Interfaces;
 using EnglishLearning.Utilities.Identity.Services;
@@ -15,6 +16,8 @@ namespace EnglishLearning.Utilities.Identity.Configuration
             services.AddSingleton<IJwtSecretKeyProvider, JwtSecretKeyProvider>();
             services.AddSingleton<IAuthInfoProvider, AuthInfoProvider>();
 
+            services.AddTransient<JwtInfoHeaderHandler>();
+            
             return services;
         }
 
