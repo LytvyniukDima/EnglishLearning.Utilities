@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -29,7 +30,7 @@ namespace EnglishLearning.Utilities.Http.Extensions
             T body)
         {
             var serializedBody = JsonSerializer.Serialize(body);
-            var content = new StringContent(serializedBody);
+            var content = new StringContent(serializedBody, Encoding.UTF8, "application/json");
             
             using var response = await httpClient.PostAsync(url, content);
 
@@ -44,7 +45,7 @@ namespace EnglishLearning.Utilities.Http.Extensions
             var serializedBody = JsonSerializer.Serialize(body);
             
             var request = new HttpRequestMessage(HttpMethod.Post, url);
-            var content = new StringContent(serializedBody);
+            var content = new StringContent(serializedBody, Encoding.UTF8, "application/json");
             using var response = await httpClient.PostAsync(url, content);
 
             response.EnsureSuccessStatusCode();
