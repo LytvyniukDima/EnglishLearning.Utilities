@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Speech.Contracts", "src\EnglishLearning.Utilities.Speech.Contracts\EnglishLearning.Utilities.Speech.Contracts.csproj", "{89A4BE50-6A5B-4698-B90A-693C93EE515A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishLearning.Utilities.Speech", "src\EnglishLearning.Utilities.Speech\EnglishLearning.Utilities.Speech.csproj", "{D0035199-9A04-499D-A68A-CAF57EC35A7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89A4BE50-6A5B-4698-B90A-693C93EE515A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A4BE50-6A5B-4698-B90A-693C93EE515A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A4BE50-6A5B-4698-B90A-693C93EE515A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A4BE50-6A5B-4698-B90A-693C93EE515A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0035199-9A04-499D-A68A-CAF57EC35A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0035199-9A04-499D-A68A-CAF57EC35A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0035199-9A04-499D-A68A-CAF57EC35A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0035199-9A04-499D-A68A-CAF57EC35A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
