@@ -16,7 +16,6 @@ jobs:
       PROJECT_NAME: 'EnglishLearning.Utilities.Speech'
       MAJOR: 1
       MINOR: 0
-      PATCH: 0
       SONAR_SERVER_URL: ${{ secrets.SONAR_SERVER_URL }}
       SONAR_SERVER_TOKEN: ${{ secrets.SONAR_SERVER_TOKEN }}
       PACKAGES_WORKFLOW_TOKEN: ${{ secrets.PACKAGES_WORKFLOW_TOKEN }}
@@ -44,7 +43,7 @@ jobs:
       run: dotnet sonarscanner end /d:sonar.login=${{env.SONAR_SERVER_TOKEN}}
       working-directory: ${{env.working-directory}}
     - name: Pack
-      run: dotnet pack -c Release -o . -p:PackageVersion=$MAJOR.$MINOR.$PATCH.$GITHUB_RUN_NUMBER
+      run: dotnet pack -c Release -o . -p:PackageVersion=$MAJOR.$MINOR.$GITHUB_RUN_NUMBER
       working-directory: ${{env.working-directory}}
     - name: Publish
       run: dotnet nuget push '*.nupkg'
