@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EnglishLearning.Utilities.Speech.Configuration
 {
-    internal static class SpeechSettings
+    public static class SpeechSettings
     {
-        public static IServiceCollection AddSpeech(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddEnglishLearningSpeech(this IServiceCollection services, IConfiguration configuration)
         {
             var speechConfiguration = new SpeechConfiguration
             {
